@@ -4,3 +4,9 @@ c:\users\jennifer kuschnig\documents\visual studio 2015\Projects\AlogDatPraktiku
 c:\users\jennifer kuschnig\documents\visual studio 2015\Projects\AlogDatPraktikum\AlogDatPraktikum\obj\Debug\AlogDatPraktikum.csprojResolveAssemblyReference.cache
 c:\users\jennifer kuschnig\documents\visual studio 2015\Projects\AlogDatPraktikum\AlogDatPraktikum\obj\Debug\AlogDatPraktikum.exe
 c:\users\jennifer kuschnig\documents\visual studio 2015\Projects\AlogDatPraktikum\AlogDatPraktikum\obj\Debug\AlogDatPraktikum.pdb
+C:\Users\Jennifer Kuschnig\Documents\GitHub\AlgoDat\AlogDatPraktikum\AlogDatPraktikum\bin\Debug\AlogDatPraktikum.exe.config
+C:\Users\Jennifer Kuschnig\Documents\GitHub\AlgoDat\AlogDatPraktikum\AlogDatPraktikum\obj\Debug\AlogDatPraktikum.exe
+C:\Users\Jennifer Kuschnig\Documents\GitHub\AlgoDat\AlogDatPraktikum\AlogDatPraktikum\obj\Debug\AlogDatPraktikum.pdb
+C:\Users\Jennifer Kuschnig\Documents\GitHub\AlgoDat\AlogDatPraktikum\AlogDatPraktikum\bin\Debug\AlogDatPraktikum.exe
+C:\Users\Jennifer Kuschnig\Documents\GitHub\AlgoDat\AlogDatPraktikum\AlogDatPraktikum\bin\Debug\AlogDatPraktikum.pdb
+C:\Users\Jennifer Kuschnig\Documents\GitHub\AlgoDat\AlogDatPraktikum\AlogDatPraktikum\obj\Debug\AlogDatPraktikum.csprojResolveAssemblyReference.cache

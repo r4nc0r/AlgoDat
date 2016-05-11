@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlogDatPraktikum
 {
-    abstract class BaseTree
+    class BaseList
     {
     }
 }
