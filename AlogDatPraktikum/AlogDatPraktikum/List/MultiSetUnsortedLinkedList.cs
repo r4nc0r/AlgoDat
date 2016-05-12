@@ -10,22 +10,23 @@ namespace AlogDatPraktikum
     {
         public bool Delete(int elem)
         {
-            throw new NotImplementedException();
+            return base.Delete(elem);
         }
 
         public bool Insert(int elem)
         {
-            throw new NotImplementedException();
+            base.Add(elem);
+            return true;
         }
 
         public void Print()
         {
-            throw new NotImplementedException();
+            base.Print();
         }
 
         public bool Search(int elem)
         {
-            throw new NotImplementedException();
+            return base.search(elem);
         }
     }
 }

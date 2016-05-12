@@ -10,7 +10,20 @@ namespace AlogDatPraktikum
     {
         static void Main(string[] args)
         {
-                
+            BaseList List = new BaseList();
+            for (int i = 0; i < 10; i++)
+            {
+                List.Add(i);
+            }
+            List.Print();
+
+            List.Print();
+            Console.WriteLine();
+            Console.WriteLine(List.search(3));
+            Console.WriteLine(List.search(99));
+            List.Delete(5);
+            Console.WriteLine();
+            List.Print();
         }
     }
 }
