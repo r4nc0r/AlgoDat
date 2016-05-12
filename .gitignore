@@ -244,6 +244,3 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 
-#Debug
-AlogDatPraktikum\AlogDatPraktikum\bin
-AlogDatPraktikum\AlogDatPraktikum\obj
