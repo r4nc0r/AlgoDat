@@ -8,6 +8,9 @@ namespace AlogDatPraktikum
 {
     class HashTabSepChain : BaseHash, Set
     {
+        
+        BaseList[] hashChain = new BaseList[TabLength];
+
         public bool Delete(int elem)
         {
             throw new NotImplementedException();
@@ -15,11 +18,18 @@ namespace AlogDatPraktikum
 
         public bool Insert(int elem)
         {
-            throw new NotImplementedException();
+            int hashValue = base.hashfuntion(elem);
+            if (hashChain[hashValue]==null)
+            {
+                hashChain[hashValue] = new BaseList();
+            }
+            hashChain[hashValue].Add(elem);
+            return true;
         }
 
         public void Print()
         {
+            
             throw new NotImplementedException();
         }
 
@@ -27,5 +37,6 @@ namespace AlogDatPraktikum
         {
             throw new NotImplementedException();
         }
+        
     }
 }

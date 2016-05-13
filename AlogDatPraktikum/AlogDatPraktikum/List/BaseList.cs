@@ -12,6 +12,8 @@ namespace AlogDatPraktikum
         private LinkedListNode first = null, last = null;
         private int anz = 0;
 
+        public LinkedListNode Root { get { return first; } }
+
         public void Add(int Element)
         {
             LinkedListNode newListElem = new LinkedListNode();
@@ -97,13 +99,15 @@ namespace AlogDatPraktikum
             }
         }
 
-        private LinkedListNode privatesearch(int Element)
+
+        //Suche liefert für nicht gefundene das falsche ergebniss. 
+        protected LinkedListNode privatesearch(int Element)
         {
             LinkedListNode lfd = first;
-            while (lfd.elem != Element && lfd.next != null)
+            while (lfd.elem != Element && lfd.next != null) 
             {
                 lfd = lfd.next;
-            }
+            } 
             return lfd;
         }
         public void Print()
