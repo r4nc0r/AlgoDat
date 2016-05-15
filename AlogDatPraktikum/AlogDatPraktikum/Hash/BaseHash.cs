@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlogDatPraktikum
 {
-    class BaseHash
+    class BaseHash 
     {
         public const int TabLength = 2048;
 

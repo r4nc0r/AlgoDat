@@ -19,7 +19,7 @@ namespace AlogDatPraktikum
             return true;
         }
 
-        public void Print()
+        public new void Print()
         {
             base.Print();
         }

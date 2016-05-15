@@ -8,7 +8,7 @@ namespace AlogDatPraktikum
 {
     class SetUnsortedLinkedList : UnsortedLinkedList, Set
     {
-        public bool Delete(int elem)
+        public new bool Delete(int elem)
         {
             return base.Delete(elem);
         }
@@ -26,7 +26,7 @@ namespace AlogDatPraktikum
             }
         }
 
-        public void Print()
+        public new void Print()
         {
             base.Print();
         }

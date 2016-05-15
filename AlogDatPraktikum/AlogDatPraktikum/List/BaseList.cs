@@ -8,7 +8,6 @@ namespace AlogDatPraktikum
 {
     class BaseList
     {
-
         private LinkedListNode first = null, last = null;
         private int anz = 0;
 
@@ -38,6 +37,7 @@ namespace AlogDatPraktikum
             else
             {
                 newListElem.next = first;
+                first.prev = newListElem;
                 first = newListElem;
             }
         }
@@ -51,7 +51,11 @@ namespace AlogDatPraktikum
                 newListElem.elem = Element;
 
                 LinkedListNode prev = ntesElement(ind - 1);
+                //LinkedListNode prev = ntesElement(ind);
+
                 newListElem.next = prev.next;   // ntesElement(ind);
+                newListElem.prev = prev;
+                prev.next.prev = newListElem;
                 prev.next = newListElem;        // ntesElement(ind-1).next = ...
 
                 if (prev == last)       // Ist das neue Elem. nun das letzte Elem.?
@@ -93,8 +97,20 @@ namespace AlogDatPraktikum
                 return false;
             else
             {
-                toDelete.prev.next = toDelete.next;
-                toDelete.next.prev = toDelete.prev;
+                if (toDelete.prev == null)
+                {
+                    toDelete.next.prev = null;
+                    first = toDelete.next;
+                }
+                else
+                {
+                    toDelete.prev.next = toDelete.next;
+                    if (toDelete.prev.next == null)
+                        last = toDelete.prev;
+                    else
+                    toDelete.next.prev = toDelete.prev;
+                }
+                
                 return true;
             }
         }
@@ -103,11 +119,24 @@ namespace AlogDatPraktikum
         //Suche liefert für nicht gefundene das falsche ergebniss. 
         protected LinkedListNode privatesearch(int Element)
         {
-            LinkedListNode lfd = first;
-            while (lfd.elem != Element && lfd.next != null) 
+            LinkedListNode lfd = null;
+            if (first == null)
             {
+                return lfd; 
+            }
+
+            lfd = first;
+            do
+            {
+                if (lfd.elem == Element)
+                {
+                    return lfd;
+                }
+                   
                 lfd = lfd.next;
-            } 
+                
+            } while (lfd != null ) ;
+
             return lfd;
         }
         public void Print()
@@ -122,7 +151,7 @@ namespace AlogDatPraktikum
 
         public bool search(int Element)
         {
-            if (privatesearch(Element).elem == Element)
+            if (privatesearch(Element) != null)
                 return true;
             else
                 return false;
