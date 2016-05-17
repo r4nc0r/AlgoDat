@@ -8,24 +8,34 @@ namespace AlogDatPraktikum
 {
     class SetUnsortedLinkedList : UnsortedLinkedList, Set
     {
-        public bool Delete(int elem)
+        public new bool Delete(int elem)
         {
-            throw new NotImplementedException();
+            return base.Delete(elem);
         }
 
         public bool Insert(int elem)
         {
-            throw new NotImplementedException();
+            if (privatesearch(elem) == null)
+            {
+                Add(elem);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public void Print()
+        public new void Print()
         {
-            throw new NotImplementedException();
+            base.Print();
         }
 
         public bool Search(int elem)
         {
-            throw new NotImplementedException();
+            return base.search(elem);
         }
+
+        
     }
 }
