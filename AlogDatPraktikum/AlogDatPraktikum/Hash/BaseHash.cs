@@ -8,9 +8,9 @@ namespace AlogDatPraktikum
 {
     class BaseHash 
     {
-        public const int TabLength = 2048;
+        public static int TabLength = 2048;
 
-        public int ChainLength { get { return TabLength; } }
+        //public int ChainLength { get { return TabLength; } }
 
         int[] HashTab = new int[TabLength];
  

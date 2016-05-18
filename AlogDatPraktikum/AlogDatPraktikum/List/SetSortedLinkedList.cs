@@ -8,24 +8,30 @@ namespace AlogDatPraktikum
 {
     class SetSortedLinkedList : SortedLinkedList, SortedSet
     {
-        public bool Delete(int elem)
+        public new  bool Delete(int elem)
         {
-            throw new NotImplementedException();
+            return base.Delete(elem);
         }
 
         public bool Insert(int elem)
         {
-            throw new NotImplementedException();
+            if (!base.search(elem))
+            {
+                Add(elem);
+                return true;
+            }
+            else
+                return false;
         }
 
-        public void Print()
+        public new void Print()
         {
-            throw new NotImplementedException();
+            base.Print();
         }
 
         public bool Search(int elem)
         {
-            throw new NotImplementedException();
+           return base.search(elem);
         }
     }
 }

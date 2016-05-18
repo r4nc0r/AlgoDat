@@ -11,6 +11,8 @@ namespace AlogDatPraktikum
         static void Main(string[] args)
         {
             //BaseList List = new BaseList();
+            //List.Print();
+            //List.Delete(5);
             //for (int i = 0; i < 10; i++)
             //{
             //    List.Add(i);
@@ -59,34 +61,56 @@ namespace AlogDatPraktikum
             //Console.WriteLine(SUsLL.Delete(6));
             //SUsLL.Print();
             //SUsLL.Insert(2);
+            //Console.WriteLine(SUsLL.Delete(94));
+
             //SUsLL.Print();
 
+
             //Test für basehash
-            //BaseHash bh = new BaseHash();
-            //bh.Insert(2503);
-            //bh.Insert(23);
-            //bh.Insert(21);
-            //bh.Print();
+            BaseHash bh = new BaseHash();
+            bh.Insert(2503);
+            bh.Insert(23);
+            bh.Insert(21);
+            bh.Print();
 
             //Test für MulitSetSortedLinkedList
-            MultiSetSortedLinkedList MssLL = new MultiSetSortedLinkedList();
-            MssLL.Insert(3);
-            MssLL.Insert(9);
-            MssLL.Insert(1);
-            MssLL.Insert(8);
-            MssLL.Insert(5);
-            MssLL.Insert(5);
-            MssLL.Insert(2);
-            MssLL.Insert(30);
-            MssLL.Print();
+            //Dictionary MssLL = new MultiSetSortedLinkedList();
+            //Console.WriteLine(MssLL.Search(0));
 
-            Console.WriteLine(MssLL.Search(2));
+            //MssLL.Delete(1);
+            //MssLL.Delete(30);
 
-            MssLL.Delete(1);
-            MssLL.Delete(30);
-            MssLL.Delete(5);
-            MssLL.Print();
+            //MssLL.Insert(1);
+            //MssLL.Insert(9);
+            //MssLL.Insert(4);
+            //MssLL.Insert(2);
+            //MssLL.Insert(8);
+            //MssLL.Insert(5);
+            //MssLL.Insert(2);
+            //MssLL.Insert(30);
+            //MssLL.Print();
 
+            //Console.WriteLine(MssLL.Search(2));
+
+            //MssLL.Delete(5);
+            //MssLL.Print();
+
+            //Dictionary SSLL = new SetSortedLinkedList();
+            //SSLL.Insert(1);
+            //SSLL.Insert(9);
+            //SSLL.Insert(4);
+            //SSLL.Insert(2);
+            //SSLL.Insert(8);
+            //SSLL.Insert(5);
+            //SSLL.Insert(2);
+            //SSLL.Insert(30);
+            //SSLL.Print();
+            //Console.WriteLine("--------------------");
+            //Console.WriteLine(SSLL.Delete(2424));
+            //Console.WriteLine(SSLL.Delete(1));
+            //Console.WriteLine(SSLL.Delete(4));
+            //Console.WriteLine(SSLL.Delete(30));
+            //SSLL.Print();
 
         }
     }

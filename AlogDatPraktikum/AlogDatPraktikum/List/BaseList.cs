@@ -12,8 +12,10 @@ namespace AlogDatPraktikum
         private int anz = 0;
 
         public LinkedListNode Root { get { return first; } }
+        public LinkedListNode Last { get { return first; }
+            protected set { last = value; } }
 
-        public void Add(int Element)
+        public virtual void Add(int Element)
         {
             LinkedListNode newListElem = new LinkedListNode();
             newListElem.elem = Element;
@@ -72,45 +74,25 @@ namespace AlogDatPraktikum
                     last = null;    // --> dann auch Ende anpassen
             }
         }
-        public void DeleteAt(int ind)
-        {
-            if (first == null)        // Gibt es überhaupt eine Liste?
-                return;
-
-            if (ind == 0)           // Erstes Element löschen?
-                DeleteFirst();
-            else
-            {
-                LinkedListNode tmp = ntesElement(ind - 1);
-                //LinkedListNode nachf = ntesElement(ind + 1);
-                LinkedListNode nachf = tmp.next.next;
-                tmp.next = nachf;       // tmp.next.next;
-                if (tmp.next == null)   // Wurde das letzte Element gelöscht?
-                    last = tmp;
-            }
-        }
-
+       
         public bool Delete(int Element)
         {
-            LinkedListNode toDelete = privatesearch(Element);
-            if (toDelete == null)
-                return false;
+            if (first != null && first.elem == Element)
+            {
+                DeleteFirst();
+                return true;
+            }
             else
             {
-                if (toDelete.prev == null)
-                {
-                    toDelete.next.prev = null;
-                    first = toDelete.next;
-                }
+                LinkedListNode toDelete = privatesearch(Element);
+                if (toDelete == null)
+                    return false;
+
+                toDelete.prev.next = toDelete.next;
+                if (toDelete.prev.next == null)
+                    last = toDelete.prev;
                 else
-                {
-                    toDelete.prev.next = toDelete.next;
-                    if (toDelete.prev.next == null)
-                        last = toDelete.prev;
-                    else
                     toDelete.next.prev = toDelete.prev;
-                }
-                
                 return true;
             }
         }

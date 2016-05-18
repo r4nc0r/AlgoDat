@@ -15,7 +15,7 @@ namespace AlogDatPraktikum
 
         public bool Insert(int elem)
         {
-            if (privatesearch(elem) == null)
+            if (!base.search(elem))
             {
                 Add(elem);
                 return true;
@@ -25,7 +25,7 @@ namespace AlogDatPraktikum
                 return false;
             }
         }
-
+        
         public new void Print()
         {
             base.Print();

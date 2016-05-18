@@ -9,7 +9,7 @@ namespace AlogDatPraktikum
     class HashTabSepChain : BaseHash, Set
     {
         
-        BaseList[] hashChain = new BaseList[TabLength];
+        SetUnsortedLinkedList[] hashChain = new SetUnsortedLinkedList[TabLength];
 
         public bool Delete(int elem)
         {
@@ -21,7 +21,7 @@ namespace AlogDatPraktikum
             int hashValue = base.hashfuntion(elem);
             if (hashChain[hashValue]==null)
             {
-                hashChain[hashValue] = new BaseList();
+                hashChain[hashValue] = new SetUnsortedLinkedList();
             }
             hashChain[hashValue].Add(elem);
             return true;
