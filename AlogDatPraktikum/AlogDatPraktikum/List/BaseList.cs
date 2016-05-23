@@ -9,7 +9,6 @@ namespace AlogDatPraktikum
     class BaseList
     {
         private LinkedListNode first = null, last = null;
-        private int anz = 0;
 
         public LinkedListNode Root { get { return first; } }
         public LinkedListNode Last { get { return first; }
@@ -126,12 +125,12 @@ namespace AlogDatPraktikum
             LinkedListNode lfd = first;
             while (lfd != null)
             {
-                Console.WriteLine(lfd.elem);
+                Console.Write("->"+lfd.elem );
                 lfd = lfd.next;
             }
         }
 
-        public bool search(int Element)
+        public virtual bool search(int Element)
         {
             if (privatesearch(Element) != null)
                 return true;

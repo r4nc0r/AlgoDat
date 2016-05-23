@@ -23,10 +23,15 @@ namespace AlogDatPraktikum
                 }
                 else
                 {
-                    newElement.next = temp;
-                    newElement.prev = temp.prev;
-                    temp.prev.next = newElement;
-                    temp.prev = newElement;
+                    if (temp.prev == null)
+                        AddFirst(Element);
+                    else
+                    {
+                        newElement.next = temp;
+                        newElement.prev = temp.prev;
+                        temp.prev.next = newElement;
+                        temp.prev = newElement;
+                    }
                 }
             }
         }
@@ -44,10 +49,17 @@ namespace AlogDatPraktikum
                 }
                 else
                     return lfd;
-                
             }
             
             return lfd;
+        }
+
+        public override bool search(int Element)
+        {
+            //if (Root!=null && (Element < Root.elem || Element > Last.elem))
+                //return true;
+            
+            return base.search(Element);
         }
     }
 }
