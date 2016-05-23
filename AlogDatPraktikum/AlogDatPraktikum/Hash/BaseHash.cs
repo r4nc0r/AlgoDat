@@ -8,32 +8,7 @@ namespace AlogDatPraktikum
 {
     abstract class BaseHash 
     {
-        //public int TabLength;
 
-
-        //public BaseHash()
-        //{
-        //    Console.WriteLine("wie groß soll die Hashtabelle sein?");
-        //    Console.Write("Bitte geben Sie eine Primzahl ein ");
-        //    int inp= Convert.ToInt32(Console.ReadLine());
-
-        //    while(!isPrim(inp));
-        //    {
-        //        Console.Write("Bitte geben Sie eine Primzahl ein ");
-        //        inp = Convert.ToInt32(Console.ReadLine());
-        //    }
-        //    TabLength = inp;
-        //    HashTab = new int[TabLength];
-        //    initHashTab();
-        //}
-
-        //private void initHashTab()
-        //{
-        //    for (int i = 0; i < HashTab.Length; i++)
-        //    {
-        //        HashTab[i] = -1;
-        //    }
-        //}
         protected bool isPrim(int Input)
         {
             for (int i = 2; i <= Math.Sqrt(Input); i++)

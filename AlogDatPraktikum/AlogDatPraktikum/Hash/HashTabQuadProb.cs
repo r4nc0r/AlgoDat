@@ -9,7 +9,7 @@ namespace AlogDatPraktikum
     class HashTabQuadProb : BaseHash, Set
     {
         int[] hashTab;
-        int TabLength;
+        int TabLength, freespace;
         public HashTabQuadProb()
         {
             Console.WriteLine("wie groß soll die Hashtabelle mindestens sein?");
@@ -21,6 +21,9 @@ namespace AlogDatPraktikum
             Console.WriteLine(TabLength);
             initHashTab();
         }
+        /// <summary>
+        /// initiailisiert alle Einträge der Hashtabelle auf -1
+        /// </summary>
         private void initHashTab()
         {
             for (int i = 0; i < hashTab.Length; i++)
@@ -31,13 +34,14 @@ namespace AlogDatPraktikum
 
         public bool Delete(int elem)
         {
-            int pos = hashTab[privSearch(elem)];
-            if (hashTab[pos] != -1)
-            {
-                hashTab[pos] = -1;
-                return true;
-            }
+            int pos = privSearch(elem);
+            if (pos == -1 )
                 return false;
+
+            hashTab[pos] = -1;
+                return true;
+            
+            
         }
 
         public override bool Insert(int elem)
@@ -45,10 +49,16 @@ namespace AlogDatPraktikum
             for (int i = 0; i < TabLength; i++)
             {
                 int pos = calcHash(elem, i, TabLength);
+                if(pos < 0)
+                {
+                    Console.WriteLine("Kein Speicherplatz vorhanden");
+                    return false;
+                }
                 if (hashTab[pos] == elem)
                 { return false; }
                 if (hashTab[pos] == -1)
                 {
+                    freespace--;
                     hashTab[pos] = elem;
                     return true;
                 }
@@ -77,34 +87,32 @@ namespace AlogDatPraktikum
         {
             for (int i = 0; i < TabLength; i++)
             {
+             
                 int pos = calcHash(elem, i, TabLength);
+                if (pos < 0)
+                {
+                    return -1;
+                }
                 if (hashTab[pos] == elem)
                     return pos;
-                else if (hashTab[pos] == -1)
-                    return -1;
+                //else if (hashTab[pos] == -1)
+                //    return -1;
             }
             return -1;
         }
 
         public override int calcNextPrim(int Input)
         {
-            bool flage = false;
-            if (Input % 2 == 0)
-                Input++;
-            while (!flage)//(isPrim(Input)!=true && !(Input % 4 != 3))
+
+            Input = base.calcNextPrim(Input);
+            while (Input % 4 != 3)
             {
-                if(isPrim(Input))
-                {
-                    if (Input % 4 == 3)
-                    {
-                        flage = true;
-                        return Input;
-                    }
-                }
-               
-                    Input = Input + 2;
-            }
-                return Input;
+                Input += 2;
+                Input = base.calcNextPrim(Input);
+
+            } 
+
+            return Input;
         }
     
         //private int calculateC(int Min)
@@ -134,10 +142,11 @@ namespace AlogDatPraktikum
 
         private int calcHash(int Element, int j, int c)
         {
-            int mult = (int)(Math.Ceiling(j / 2.0));
+            int mult = (int)(Math.Ceiling(j  / 2.0));
+            mult = mult * mult;
             int temp = hashfuntion(Element, c) + (int)(Math.Pow(-1, (j + 1)) * mult);
-         
-            if(temp<=-1)
+
+            if (temp <= -1)
             {
                 temp = temp + c;
             }

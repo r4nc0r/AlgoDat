@@ -18,12 +18,12 @@ namespace AlogDatPraktikum
             //Dictionary Dict = new HashTabSepChain();
             //Dictionary Dict = new HashTabQuadProb();
 
-            Dict[0] = new MultiSetSortedLinkedList();
-            Dict[1] = new MultiSetUnsortedLinkedList();
-            Dict[2] = new SetSortedLinkedList();
-            Dict[3] = new SetUnsortedLinkedList();
-            Dict[4] = new HashTabSepChain();
-            Dict[5] = new HashTabQuadProb();
+            //Dict[0] = new MultiSetSortedLinkedList();
+            //Dict[1] = new MultiSetUnsortedLinkedList();
+            //Dict[2] = new SetSortedLinkedList();
+            //Dict[3] = new SetUnsortedLinkedList();
+            Dict[0] = new HashTabSepChain();
+            //Dict[5] = new HashTabQuadProb();
 
             Random rnd = new Random();
             int[] InputElemente = new int[20];
@@ -39,12 +39,26 @@ namespace AlogDatPraktikum
                 Console.WriteLine();
                 foreach (int random in InputElemente)
                 {
-                    item.Insert(random);
+                    Console.WriteLine(item.Insert(random));
                 }
+
                 Console.WriteLine(item.GetType().ToString());
                 item.Print();
+
+                int input; 
+                do
+                {
+                    Console.WriteLine("WErt bitte zum löschen");
+                    input = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine(item.Delete(input));
+                    item.Print();
+
+                } while (input != -1);
+
+                
                 
             }
+
 
             //foreach (Dictionary item in DictArray)
             //{
