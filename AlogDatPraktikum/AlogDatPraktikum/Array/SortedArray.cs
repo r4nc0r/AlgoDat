@@ -8,6 +8,12 @@ namespace AlogDatPraktikum
 {
     abstract class SortedArray : BaseArray
     {
+        public bool PrivateDelete(int[] array, int position, int negative)
+        {
+            array[position] = negative;
+            Array.Sort(array);
+            return true;
+        }
 
         public int PrivateSearch(int elem, int[] array)
         {
@@ -34,35 +40,20 @@ namespace AlogDatPraktikum
                 }
             }
 
-            /*
-                        if (position == -1)
-                        {
-                            position = l;
-                            while (position < array.Length && array[position] < elem)
-                                position++;
-
-                            position--;
-                            while (position >=0 && array[position] < 0)
-                                position--;
-                            position++;
-                            if (array[position] > elem && array[position] > 0)
-                            {
-                                position--;
-                                return position;
-                            }
-
-                        }
-                        return position;
-                        */
 
             if (position == -1)
             {
                 int x;
                 for (x= 0; x < array.Length-1; x++)
                 {
+                    if (elem <0 && array[x+1]>elem )
+                    {
+                        return x;
+                    }
                     if (array[x] < elem && array[x+1] > elem)
                     {
-                        return x + 1;
+
+                        return x;
                     }
                     if (x == array.Length -2)
                     {
@@ -74,17 +65,26 @@ namespace AlogDatPraktikum
             return position;
         }
 
-        public bool IsSpaceAvailable(int[] array)
+        public bool PrivateInsert(int elem, int[] array, int position)
         {
-            for (int i = 19; i >= 0; i--)
+            if (position == -1 || position + 1 > array.Length)
             {
-                if (array[i] < 0)
-                {
-                    return true;
-                }
+                return false;
             }
-            return false;
+
+            if (IsSpaceAvailable(array))
+            {
+                array = ShiftArrayLeft(array, 0);
+            }
+
+            if (array[position] > elem)
+            {
+                array = ShiftArrayRight(array, position);
+            }
+            array[position] = elem;
+            return true;
         }
+
     }
     
 }
