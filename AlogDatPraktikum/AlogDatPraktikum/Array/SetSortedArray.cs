@@ -10,9 +10,9 @@ namespace AlogDatPraktikum
     {
         static private int ArraySize = 20;
         private int[] SetSorted;
-         public SetSortedArray()
+        public SetSortedArray()
         {
-            int counter = 2000;
+            int counter =-20;
             SetSorted = new int[ArraySize];
             for (int i = 0; i < ArraySize; i++)
             {
@@ -23,7 +23,7 @@ namespace AlogDatPraktikum
     
         public bool Delete(int elem)
         {
-            int position = PrivateSearch(elem);
+            int position = base.PrivateSearch(elem, SetSorted);
             if (position== elem)
             {
                 int tempPosition = position;
@@ -42,28 +42,36 @@ namespace AlogDatPraktikum
 
         public bool Insert(int elem)
         {
-
-            int position = PrivateSearch(elem);
+            int position = base.PrivateSearch(elem, SetSorted);
 
             if (position+ 1 > ArraySize)
             {
                 return false;
             }
 
+            if (position == 19)
+            {
+                if (IsSpaceAvailable(SetSorted))
+                {
+                    SetSorted = ShiftArrayLeft(SetSorted);
+                }
+                else
+                {
+                    return false;
+                }
+            }
 
-            if (SetSorted[position]== elem)
+            if (position == -1 || SetSorted[position] == elem)
             {
                 return false;
             }
             else
             {
-                int tempPosition = position;
-                int tempInt;
-                for (int i = 0; i < (ArraySize - position); i++)
+                int tempposition = position;
+                for (int i = ArraySize-position- 1; i > position; i--)
                 {
-                    tempInt = SetSorted[i + 1];
-                    SetSorted[i + 1] = SetSorted[i];
-
+                    SetSorted[i] = SetSorted[i-1];
+                    tempposition--;
                 }
                 
                 SetSorted[position] = elem;
@@ -74,53 +82,18 @@ namespace AlogDatPraktikum
 
         public void Print()
         {
-            for (int i = 0; i < SetSorted.Length; i++)
-            {
-                Console.WriteLine(SetSorted[i]);
-            }
+            base.Print(SetSorted);
         }
 
-        private int PrivateSearch(int elem)
-        {
-         
-            int i;
-            int l = 0;
-            int r = ArraySize - 1;
-
-            do
-            {
-                i = (l + r) / 2;
-                if (SetSorted[i] < elem)
-                {
-                    l = i + 1;
-                }
-                else
-                {
-                    r = i - 1;
-                }
-
-            } while (SetSorted[i] != elem && l < r);
-            
-            
-            if (SetSorted[i] == elem)
-            {
-                return i;
-            }
-            else
-            { 
-               
-                while (i < r && SetSorted[i] < elem)
-                    i++;
-                i--;
-                return i;
-                
-            }
-           
-
-        }
+   
         public bool Search(int elem)
         {
-            if (PrivateSearch(elem) == elem)
+            int position= base.PrivateSearch(elem, SetSorted);
+            if ( position == -1)
+            {
+                return false;
+            }
+            else if (SetSorted[position] == elem)
             {
                 return true;
             }
