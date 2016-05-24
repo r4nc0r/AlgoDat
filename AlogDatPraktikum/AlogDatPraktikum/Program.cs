@@ -162,6 +162,33 @@ namespace AlogDatPraktikum
             //SSLL.Print();
 
 
+            //Test für Trees
+            //string input = "";
+            //Dictionary tree = null;
+            //while (input != "1" && input != "2")
+            //{
+            //    Console.WriteLine("[1]: BinaryTree");
+            //    Console.WriteLine("[2]: AVLTree");
+            //    input = Console.ReadLine();
+            //}
+
+            //if (input == "1")
+            //    tree = new BinTree();
+            //else
+            //    tree = new AVLTree();
+
+            //while (true)
+            //{
+            //    input = Console.ReadLine();
+            //    if (input.ToLower().StartsWith("insert"))
+            //        tree.Insert(Convert.ToInt32(input.Remove(0, 6).Trim()));
+            //    else if (input.ToLower().StartsWith("delete"))
+            //        tree.Delete(Convert.ToInt32(input.Remove(0, 6).Trim()));
+            //    else if (input.ToLower().StartsWith("print"))
+            //        tree.Print();
+            //}
+
+
             //Test für basehash
             //BaseHash bh = new BaseHash();
             //bh.Insert(2503);
@@ -171,7 +198,7 @@ namespace AlogDatPraktikum
             //bh.Print();
             //Console.WriteLine(bh.DeleteAnItem(23));
             //bh.Print();
-            
+
             //Dictionary HTSC = new HashTabSepChain();
             //HTSC.Insert(2503);
             //HTSC.Insert(23);

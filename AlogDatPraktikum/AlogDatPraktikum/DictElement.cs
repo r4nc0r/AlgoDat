@@ -8,5 +8,11 @@ namespace AlogDatPraktikum
 {
     class DictElement
     {
+        public int elemValue;
+
+        public DictElement(int value)
+        {
+            this.elemValue = value;
+        }
     }
 }

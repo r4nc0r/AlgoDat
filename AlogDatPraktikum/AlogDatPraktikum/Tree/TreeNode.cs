@@ -9,7 +9,12 @@ namespace AlogDatPraktikum
     class TreeNode
     {
         public DictElement elem;
-      public   TreeNode right;
-      public  TreeNode left;
+        public TreeNode right;
+        public TreeNode left;
+
+        public TreeNode(int value)
+        {
+            this.elem = new DictElement(value);
+        }
     }
 }
