@@ -8,7 +8,13 @@ namespace AlogDatPraktikum
 {
     class AVLTreeNode : TreeNode
     {
-        int BalaceFaktor;
-        
+        public int BalanceFaktor;
+        public AVLTreeNode parent;
+
+        public AVLTreeNode(int value, AVLTreeNode parent) : base(value)
+        {
+            BalanceFaktor = 0;
+            this.parent = parent;
+        }
     }
 }

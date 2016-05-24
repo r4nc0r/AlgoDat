@@ -75,6 +75,7 @@
     <Compile Include="Tree\TreeNode.cs" />
     <Compile Include="Array\UnsortedArray.cs" />
     <Compile Include="List\UnsortedLinkedList.cs" />
+    <Compile Include="Tree\TreeNodeRef.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

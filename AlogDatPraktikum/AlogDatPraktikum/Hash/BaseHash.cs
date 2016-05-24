@@ -6,57 +6,79 @@ using System.Threading.Tasks;
 
 namespace AlogDatPraktikum
 {
-    class BaseHash 
+    abstract class BaseHash 
     {
-        public static int TabLength = 2048;
 
-        //public int ChainLength { get { return TabLength; } }
-
-        int[] HashTab = new int[TabLength];
- 
-        private double calculateC()
+        protected bool isPrim(int Input)
         {
-            return  1/(0.5 * (1 + Math.Sqrt(5)));
+            for (int i = 2; i <= Math.Sqrt(Input); i++)
+                if (Input % i == 0)
+                    return false;
+            return true;
+        }
+        public virtual int calcNextPrim(int Input)
+        {
+            if (Input % 2 == 0)
+                Input++;
+            while (!isPrim(Input))
+                Input = Input + 2;
+            return Input;
         }
 
-        protected int hashfuntion(int Element)
+        protected int hashfuntion(int Element, int Modul)
         {
-            int hashKey;
-            double c = calculateC();
-            double temp = Element * c;
-            hashKey = (int)((temp - Math.Truncate(temp)) *TabLength);
-
+            int hashKey = Element % Modul;
             return hashKey;
         }
 
-        public bool Insert(int Element)
-        {
-            int temp = hashfuntion(Element);
-            if (HashTab[temp] == 0)
-            {
-                HashTab[temp] = Element;
-                return true;
-            }
-            else
-                return false;
+        //public int DeleteAnItem(int Element)
+        //{
+        //    int pos = hashfuntion(Element);
+        //    if (pos != 0)
+        //    {
+        //        HashTab[pos] = 0;     
+        //    }
+        //    return pos;
+        //}
 
-        }
+        /// <summary>
+        /// Wenn eine Zelle schon belegt, wird sie bei einer Kollision nicht überschrieben
+        /// </summary>
+        /// <param name="Element"></param>
+        /// <returns></returns>
+        //public bool Insert(int Element)
+        //{
+        //    int hashvalue = hashfuntion(Element);
+        //    if (HashTab[hashvalue] == -1)
+        //    {
+        //        HashTab[hashvalue] = Element;
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Kollision beim einfügen von {0} an der Stelle {1}", Element, hashvalue);
+        //        return false;
+        //    }
+        //}
+        public abstract bool Insert(int Element);
 
-        public void PrintAll()
-        {
-            foreach (int item in HashTab)
-            {
-                Console.WriteLine(item);
-            }
-        }
+        //public void PrintAll()
+        //{
+        //    foreach (int item in HashTab)
+        //    {
+        //        Console.WriteLine(item);
+        //    }
+        //}
 
-        public void Print()
-        {
-            for (int i = 0; i < HashTab.Length; i++)
-            {
-                if(HashTab[i]!=0)
-                Console.WriteLine("Key {0}, Index: {1}" ,HashTab[i],i);
-            }
-        }
+        //public void Print()
+        //{
+        //    for (int i = 0; i < HashTab.Length; i++)
+        //    {
+        //        if(HashTab[i] >-1)
+        //        Console.WriteLine("Key {0}, Index: {1}" ,HashTab[i],i);
+        //    }
+        //}
+        public abstract void Print();
+
     }
 }
