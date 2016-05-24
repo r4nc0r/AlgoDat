@@ -100,10 +100,10 @@ namespace AlogDatPraktikum
                 node.BalanceFaktor += balance;
                 if (node.BalanceFaktor == -2)
                 {
-                    if ((node.left as AVLTreeNode).BalanceFaktor >= 0)
+                    if ((node.left as AVLTreeNode).BalanceFaktor <= 0)
                     {
-                        rotLeft(node);
-                        if (node.BalanceFaktor == 1)
+                        rotRight(node);
+                        if (node.BalanceFaktor == -1)
                             return;
                     }
                     else
@@ -111,10 +111,10 @@ namespace AlogDatPraktikum
                 }
                 else if (node.BalanceFaktor == 2)
                 {
-                    if ((node.right as AVLTreeNode).BalanceFaktor <= 0)
+                    if ((node.right as AVLTreeNode).BalanceFaktor >= 0)
                     {
-                        rotRight(node);
-                        if (node.BalanceFaktor == -1)
+                        rotLeft(node);
+                        if (node.BalanceFaktor == 1)
                             return;
                     }
                     else
