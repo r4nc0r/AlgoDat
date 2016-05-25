@@ -11,7 +11,7 @@ namespace AlogDatPraktikum
         private LinkedListNode first = null, last = null;
 
         public LinkedListNode Root { get { return first; } }
-        public LinkedListNode Last { get { return first; }
+        public LinkedListNode Last { get { return last; }
             protected set { last = value; } }
 
         public virtual void Add(int Element)
@@ -74,7 +74,7 @@ namespace AlogDatPraktikum
             }
         }
        
-        public bool Delete(int Element)
+        public virtual bool Delete(int Element)
         {
             if (first != null && first.elem == Element)
             {
@@ -96,11 +96,33 @@ namespace AlogDatPraktikum
             }
         }
 
+        public virtual bool Delete(LinkedListNode Element)
+        {
+            if (first != null && first.elem == Element.elem)
+            {
+                DeleteFirst();
+                return true;
+            }
+            else
+            {
+                LinkedListNode toDelete = Element;
+                if (toDelete == null)
+                    return false;
+
+                toDelete.prev.next = toDelete.next;
+                if (toDelete.prev.next == null)
+                    last = toDelete.prev;
+                else
+                    toDelete.next.prev = toDelete.prev;
+                return true;
+            }
+        }
 
         //Suche liefert für nicht gefundene das falsche ergebniss. 
-        protected LinkedListNode privatesearch(int Element)
+        protected virtual LinkedListNode privatesearch(int Element)
         {
             LinkedListNode lfd = null;
+           
             if (first == null)
             {
                 return lfd; 
@@ -120,6 +142,8 @@ namespace AlogDatPraktikum
 
             return lfd;
         }
+
+
         public void Print()
         {
             LinkedListNode lfd = first;
@@ -176,6 +200,23 @@ namespace AlogDatPraktikum
             {
                 ntesElement(ind).elem = value;
             }
+        }
+
+        public virtual bool DeleteAllSameElements(int elem)
+        {
+            bool delete = false;
+            LinkedListNode lfd = privatesearch(elem);
+
+            while (lfd != null)
+            {
+                if (lfd.elem == elem)
+                {
+                    delete = Delete(lfd);
+                }
+                lfd = lfd.next;
+            }
+
+            return delete;
         }
     }
 }

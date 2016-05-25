@@ -8,10 +8,10 @@ namespace AlogDatPraktikum
 {
     abstract class SortedArray : BaseArray
     {
-        public bool PrivateDelete(int[] array, int position, int negative)
+        public bool PrivateDelete(ref int[] array, int position, int negative)
         {
-            array[position] = negative;
-            Array.Sort(array);
+            ShiftArrayRight(array,position, 0);
+            array[0] = negative;
             return true;
         }
 
@@ -36,6 +36,14 @@ namespace AlogDatPraktikum
                 }
                 if (array[i] == elem)
                 {
+                    while (array[i + 1] == array[i])
+                    {
+                        if (i == array.Length-2)
+                        {
+                            break;
+                        }
+                        i++;
+                    }
                     position = i;
                 }
             }
@@ -65,7 +73,7 @@ namespace AlogDatPraktikum
             return position;
         }
 
-        public bool PrivateInsert(int elem, int[] array, int position)
+        public bool PrivateInsert(int elem,ref int[] array, int position)
         {
             if (position == -1 || position + 1 > array.Length)
             {
@@ -74,13 +82,14 @@ namespace AlogDatPraktikum
 
             if (IsSpaceAvailable(array))
             {
-                array = ShiftArrayLeft(array, 0);
+                array = ShiftArrayLeft(array, 0,0);
             }
-
+            
             if (array[position] > elem)
             {
-                array = ShiftArrayRight(array, position);
+                array = ShiftArrayRight(array, array.Length -1,position);
             }
+            
             array[position] = elem;
             return true;
         }
