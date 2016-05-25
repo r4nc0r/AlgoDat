@@ -6,61 +6,61 @@ using System.Threading.Tasks;
 
 namespace AlogDatPraktikum
 {
-    class SetSortedArray : SortedArray, SortedSet
+    class MultiSetSortedArray : SortedArray, SortedMultiSet
     {
         static private int ArraySize = 20;
         int negative;
-        private int[] SetSorted;
+        private int[] MultiSetSorted;
 
-        public SetSortedArray(int size)
+        public MultiSetSortedArray(int size)
         {
             int counter = -size;
             negative = -size;
-            SetSorted = new int[ArraySize];
+            MultiSetSorted = new int[ArraySize];
             for (int i = 0; i < ArraySize; i++)
             {
-                SetSorted[i] = counter;
+                MultiSetSorted[i] = counter;
                 counter++;
             }
         }
-    
+
         public bool Delete(int elem)
         {
             bool outcome = false;
-            int position = base.PrivateSearch(elem, SetSorted);
-            if (SetSorted[position]== elem)
+            while(Search(elem))
             {
-                negative--;
-                outcome = PrivateDelete(ref SetSorted, position, negative);
+                int position = base.PrivateSearch(elem, MultiSetSorted);
+                if (MultiSetSorted[position] == elem)
+                {
+                    negative--;
+                    outcome = PrivateDelete(ref MultiSetSorted, position, negative);
+                }
             }
             return outcome;
         }
 
         public bool Insert(int elem)
         {
-            int position = PrivateSearch(elem, SetSorted);
+            int position = PrivateSearch(elem, MultiSetSorted);
             bool outcome = false;
-            if (SetSorted[position] != elem)
-            {
-                outcome = PrivateInsert(elem,ref SetSorted, position);
-            }
+            outcome = PrivateInsert(elem,ref MultiSetSorted, position);
             return outcome;
-            
+
         }
 
         public void Print()
         {
-            base.Print(SetSorted);
+            base.Print(MultiSetSorted);
         }
-   
+
         public bool Search(int elem)
         {
-            int position= base.PrivateSearch(elem, SetSorted);
-            if ( position == -1)
+            int position = base.PrivateSearch(elem, MultiSetSorted);
+            if (position == -1)
             {
                 return false;
             }
-            else if (SetSorted[position] == elem)
+            else if (MultiSetSorted[position] == elem)
             {
                 return true;
             }

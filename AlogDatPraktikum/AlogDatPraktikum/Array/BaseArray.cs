@@ -10,22 +10,52 @@ namespace AlogDatPraktikum
     {
         public void Print(int[] array)
         {
+            Console.Write("[");
             for (int i = 0; i < array.Length; i++)
             {
-                if (array[i] > -1)
+                if (i == array.Length-1)
                 {
-                    Console.Write(array[i] + " ");
+                    Console.Write(" {0} ", array[i]);
+                }
+                else if (array[i] > -1)
+                { 
+                    Console.Write(" {0} |",array[i]);
                 }
             }
-            Console.WriteLine();
+            Console.Write("]\n\n");
         }
-        public int[] ShiftArrayLeft(int[] array)
+        public int[] ShiftArrayLeft(int[] array, int startPosition,  int endPosition)
         {
-            for (int i = 0; i < array.Length-1; i++)
+            int tempPosition = endPosition;
+            for (int i = startPosition; i < array.Length -endPosition- 1; i++)
             {
-                array[i] = array[i + 1];
+                array[tempPosition] = array[tempPosition + 1];
+                tempPosition = tempPosition + 1;
             }
             return array;
         }
+
+        public int[] ShiftArrayRight(int[] array, int startPosition, int endPosition)
+        {
+            int tempposition = endPosition;
+            for (int i = startPosition; i > endPosition; i--)
+            {
+                array[i] = array[i - 1];
+                tempposition--;
+            }
+            return array;
+        }
+        public bool IsSpaceAvailable(int[] array)
+        {
+            for (int i = 19; i >= 0; i--)
+            {
+                if (array[i] < 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }

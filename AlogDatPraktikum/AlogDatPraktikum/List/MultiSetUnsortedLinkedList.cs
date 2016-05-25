@@ -8,9 +8,9 @@ namespace AlogDatPraktikum
 {
     class MultiSetUnsortedLinkedList : UnsortedLinkedList, MultiSet
     {
-        public bool Delete(int elem)
+        public new bool Delete(int elem)
         {
-            return base.Delete(elem);
+            return base.DeleteAllSameElements(elem);
         }
 
         public bool Insert(int elem)
