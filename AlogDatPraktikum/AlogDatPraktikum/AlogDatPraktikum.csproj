@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Array\MultiSetSortedArray.cs" />
     <Compile Include="Tree\AVLTree.cs" />
     <Compile Include="Tree\AVLTreeNode.cs" />
     <Compile Include="Array\BaseArray.cs" />
@@ -57,7 +58,6 @@
     <Compile Include="Hash\HashTabSepChain.cs" />
     <Compile Include="List\LinkedListNode.cs" />
     <Compile Include="Interfaces\MultiSet.cs" />
-    <Compile Include="Array\MultiSetArray.cs" />
     <Compile Include="List\MultiSetSortedLinkedList.cs" />
     <Compile Include="Array\MultiSetUnsortedArray.cs" />
     <Compile Include="List\MultiSetUnsortedLinkedList.cs" />

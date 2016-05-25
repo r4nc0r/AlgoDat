@@ -125,9 +125,17 @@ namespace AlogDatPraktikum
             LinkedListNode lfd = first;
             while (lfd != null)
             {
-                Console.Write("->"+lfd.elem );
+                if (lfd.next != null)
+                {
+                    Console.Write(lfd.elem + " -> ");
+                    
+                }
+                else
+                    Console.Write(lfd.elem);
                 lfd = lfd.next;
+                
             }
+            Console.Write("\n\n");
         }
 
         public virtual bool search(int Element)

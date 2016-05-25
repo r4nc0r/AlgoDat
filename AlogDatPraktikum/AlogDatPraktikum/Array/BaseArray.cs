@@ -10,14 +10,19 @@ namespace AlogDatPraktikum
     {
         public void Print(int[] array)
         {
+            Console.Write("[");
             for (int i = 0; i < array.Length; i++)
             {
-                if (array[i] > -1)
+                if (i == array.Length-1)
                 {
-                    Console.Write(array[i] + " ");
+                    Console.Write(" {0} ", array[i]);
+                }
+                else if (array[i] > -1)
+                { 
+                    Console.Write(" {0} |",array[i]);
                 }
             }
-            Console.WriteLine();
+            Console.Write("]\n\n");
         }
         public int[] ShiftArrayLeft(int[] array, int position)
         {
