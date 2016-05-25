@@ -27,11 +27,14 @@ namespace AlogDatPraktikum
         public bool Delete(int elem)
         {
             bool outcome = false;
-            int position = base.PrivateSearch(elem, MultiSetSorted);
-            if (MultiSetSorted[position] == elem)
+            while(Search(elem))
             {
-                negative--;
-                outcome = PrivateDelete(MultiSetSorted, position, negative);
+                int position = base.PrivateSearch(elem, MultiSetSorted);
+                if (MultiSetSorted[position] == elem)
+                {
+                    negative--;
+                    outcome = PrivateDelete(ref MultiSetSorted, position, negative);
+                }
             }
             return outcome;
         }
@@ -40,7 +43,7 @@ namespace AlogDatPraktikum
         {
             int position = PrivateSearch(elem, MultiSetSorted);
             bool outcome = false;
-            outcome = PrivateInsert(elem, MultiSetSorted, position);
+            outcome = PrivateInsert(elem,ref MultiSetSorted, position);
             return outcome;
 
         }

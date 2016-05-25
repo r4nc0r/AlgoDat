@@ -31,7 +31,7 @@ namespace AlogDatPraktikum
             if (SetSorted[position]== elem)
             {
                 negative--;
-                outcome = PrivateDelete(SetSorted, position, negative);
+                outcome = PrivateDelete(ref SetSorted, position, negative);
             }
             return outcome;
         }
@@ -42,7 +42,7 @@ namespace AlogDatPraktikum
             bool outcome = false;
             if (SetSorted[position] != elem)
             {
-                outcome = PrivateInsert(elem, SetSorted, position);
+                outcome = PrivateInsert(elem,ref SetSorted, position);
             }
             return outcome;
             
