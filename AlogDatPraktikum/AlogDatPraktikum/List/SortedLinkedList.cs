@@ -54,12 +54,79 @@ namespace AlogDatPraktikum
             return lfd;
         }
 
+        public override bool DeleteAllSameElements(int elem)
+        {
+            bool delete = false;
+            LinkedListNode lfd = base.privatesearch(elem);
+
+            if (lfd == null)
+            {
+                return delete;
+            }
+
+            while (lfd.next != null && lfd.next.elem == elem)
+            {
+                delete = Delete(lfd);
+                lfd = lfd.next;
+            }
+
+            delete = Delete(lfd);
+
+            return delete;
+        }
+
+
         public override bool search(int Element)
         {
-            //if (Root!=null && (Element < Root.elem || Element > Last.elem))
-                //return true;
-            
-            return base.search(Element);
+            if (Root == null || Element < Root.elem || Element > Last.elem)
+            {
+                return false;
+            }
+
+            if (privatesearch(Element) != null)
+                return true;
+            else
+                return false;
+        }
+
+        protected override LinkedListNode privatesearch(int Element)
+        {
+            LinkedListNode lfd = null;
+
+            if (Root == null || Element < Root.elem || Element > Last.elem)
+            {
+                return lfd;
+            }
+
+            lfd = Root;
+            do
+            {
+                if (lfd.elem < Element)
+                {
+                    if (lfd.next.next != null)
+                    {
+                        lfd = lfd.next.next;
+                    }
+                    else
+                    {
+                        if (lfd.next.elem == Element)
+                        {
+                            return lfd.next;
+                        }
+                    }
+                }
+                else
+                {
+                    if (lfd.elem == Element)
+                        return lfd;
+                    else if (lfd.prev.elem == Element)
+                        return lfd.prev;
+                    else
+                        lfd = null;
+                }
+            } while (lfd != null);
+
+            return lfd;
         }
     }
 }
