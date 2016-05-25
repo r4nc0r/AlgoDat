@@ -19,10 +19,10 @@ namespace AlogDatPraktikum
             }
             Console.WriteLine();
         }
-        public int[] ShiftArrayLeft(int[] array, int position)
+        public int[] ShiftArrayLeft(int[] array, int startPosition,  int endPosition)
         {
-            int tempPosition = position;
-            for (int i = 0; i < array.Length - position - 1; i++)
+            int tempPosition = endPosition;
+            for (int i = startPosition; i < array.Length -endPosition- 1; i++)
             {
                 array[tempPosition] = array[tempPosition + 1];
                 tempPosition = tempPosition + 1;
@@ -30,10 +30,10 @@ namespace AlogDatPraktikum
             return array;
         }
 
-        public int[] ShiftArrayRight(int[] array, int position)
+        public int[] ShiftArrayRight(int[] array, int startPosition, int endPosition)
         {
-            int tempposition = position;
-            for (int i = array.Length-1; i > position; i--)
+            int tempposition = endPosition;
+            for (int i = startPosition; i > endPosition; i--)
             {
                 array[i] = array[i - 1];
                 tempposition--;
