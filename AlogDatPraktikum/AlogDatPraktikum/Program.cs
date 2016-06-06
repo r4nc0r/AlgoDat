@@ -113,7 +113,7 @@ namespace AlogDatPraktikum
                 }
                 if (Dict.Insert(input))
                 {
-                    Console.WriteLine(Dict.Insert(input));
+                   // Console.WriteLine(Dict.Print());
                     Console.Clear();
                     Ueberschrift(1);
                     Ueberschrift(0, Dict.ToString());
@@ -154,7 +154,7 @@ namespace AlogDatPraktikum
                 }
                 if (Dict.Search(input))
                 {
-                    Console.WriteLine(Dict.Search(input));
+                    //Console.WriteLine(Dict.Search(input));
                     Console.Clear();
                     Ueberschrift(1);
                     Ueberschrift(0, Dict.ToString());
@@ -195,7 +195,7 @@ namespace AlogDatPraktikum
                 }
                 if (Dict.Delete(input))
                 {
-                    Console.WriteLine(Dict.Delete(input));
+                    //Console.WriteLine(Dict.Delete(input));
                     Console.Clear();
                     Ueberschrift(1);
                     Ueberschrift(0, Dict.ToString());

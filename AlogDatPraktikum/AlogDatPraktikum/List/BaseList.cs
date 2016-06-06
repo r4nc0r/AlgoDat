@@ -16,8 +16,7 @@ namespace AlogDatPraktikum
 
         public virtual void Add(int Element)
         {
-            LinkedListNode newListElem = new LinkedListNode();
-            newListElem.elem = Element;
+            LinkedListNode newListElem = new LinkedListNode { elem = new DictElement(Element)} ;
 
             if (first == null)
                 first = last = newListElem;
@@ -30,8 +29,7 @@ namespace AlogDatPraktikum
         }
         public void AddFirst(int Element)
         {
-            LinkedListNode newListElem = new LinkedListNode();
-            newListElem.elem = Element;
+            LinkedListNode newListElem = new LinkedListNode { elem = new DictElement(Element) };
 
             if (first == null)
                 first = last = newListElem;
@@ -42,27 +40,6 @@ namespace AlogDatPraktikum
                 first = newListElem;
             }
         }
-        public void AddAtInd(int Element, int ind)
-        {
-            if (ind == 0)
-                AddFirst(Element);
-            else
-            {
-                LinkedListNode newListElem = new LinkedListNode();
-                newListElem.elem = Element;
-
-                LinkedListNode prev = ntesElement(ind - 1);
-                //LinkedListNode prev = ntesElement(ind);
-
-                newListElem.next = prev.next;   // ntesElement(ind);
-                newListElem.prev = prev;
-                prev.next.prev = newListElem;
-                prev.next = newListElem;        // ntesElement(ind-1).next = ...
-
-                if (prev == last)       // Ist das neue Elem. nun das letzte Elem.?
-                    last = newListElem;         // --> dann Ende anpassen
-            }
-        }
 
         public void DeleteFirst()
         {
@@ -71,34 +48,22 @@ namespace AlogDatPraktikum
                 first = first.next;     // Erstes Element überspringen
                 if (first == null)    // Ist nach dem Löschen die Liste leer?
                     last = null;    // --> dann auch Ende anpassen
+                else
+                    first.prev = null;
             }
         }
        
-        public virtual bool Delete(int Element)
+        public bool Delete(int Element)
         {
-            if (first != null && first.elem == Element)
-            {
-                DeleteFirst();
-                return true;
-            }
-            else
-            {
-                LinkedListNode toDelete = privatesearch(Element);
-                if (toDelete == null)
-                    return false;
-
-                toDelete.prev.next = toDelete.next;
-                if (toDelete.prev.next == null)
-                    last = toDelete.prev;
-                else
-                    toDelete.next.prev = toDelete.prev;
-                return true;
-            }
+            return privateDelete(this.privatesearch(Element));
         }
 
-        public virtual bool Delete(LinkedListNode Element)
+        protected virtual bool privateDelete(LinkedListNode Element)
         {
-            if (first != null && first.elem == Element.elem)
+            if (Element == null)
+                return false;
+
+            if (first != null && first.elem.elemValue == Element.elem.elemValue)
             {
                 DeleteFirst();
                 return true;
@@ -106,9 +71,7 @@ namespace AlogDatPraktikum
             else
             {
                 LinkedListNode toDelete = Element;
-                if (toDelete == null)
-                    return false;
-
+               
                 toDelete.prev.next = toDelete.next;
                 if (toDelete.prev.next == null)
                     last = toDelete.prev;
@@ -118,7 +81,7 @@ namespace AlogDatPraktikum
             }
         }
 
-        //Suche liefert für nicht gefundene das falsche ergebniss. 
+        
         protected virtual LinkedListNode privatesearch(int Element)
         {
             LinkedListNode lfd = null;
@@ -131,7 +94,7 @@ namespace AlogDatPraktikum
             lfd = first;
             do
             {
-                if (lfd.elem == Element)
+                if (lfd.elem.elemValue == Element)
                 {
                     return lfd;
                 }
@@ -151,11 +114,10 @@ namespace AlogDatPraktikum
             {
                 if (lfd.next != null)
                 {
-                    Console.Write(lfd.elem + " -> ");
-                    
+                    Console.Write(lfd.elem.elemValue + " -> ");
                 }
                 else
-                    Console.Write(lfd.elem);
+                    Console.Write(lfd.elem.elemValue);
                 lfd = lfd.next;
                 
             }
@@ -170,15 +132,19 @@ namespace AlogDatPraktikum
                 return false;
         }
 
+
+        #region nicht relevant
+
         public IEnumerator<int> GetEnumerator()
         {
             LinkedListNode lfd = first;
             while (lfd != null)
             {
-                yield return lfd.elem;
+                yield return lfd.elem.elemValue;
                 lfd = lfd.next;
             }
         }
+
 
         private LinkedListNode ntesElement(int ind)
         {
@@ -194,30 +160,32 @@ namespace AlogDatPraktikum
         {
             get
             {
-                return ntesElement(ind).elem;
+                return ntesElement(ind).elem.elemValue;
             }
             set
             {
-                ntesElement(ind).elem = value;
+                ntesElement(ind).elem.elemValue = value;
             }
         }
 
-        public virtual bool DeleteAllSameElements(int elem)
-        {
-            bool delete = false;
-            LinkedListNode lfd = privatesearch(elem);
+        //public virtual bool DeleteAllSameElements(int elem)
+        //{
+        //    bool delete = false;
+        //    LinkedListNode lfd = privatesearch(elem);
 
-            while (lfd != null)
-            {
-                if (lfd.elem == elem)
-                {
-                    delete = Delete(lfd);
-                }
-                lfd = lfd.next;
-            }
+        //    while (lfd != null)
+        //    {
+        //        if (lfd.elem.elemValue == elem)
+        //        {
+        //            delete = Delete(lfd);
+        //        }
+        //        lfd = lfd.next;
+        //    }
 
-            return delete;
-        }
+        //    return delete;
+        //}
+
+        #endregion
     }
 }
 

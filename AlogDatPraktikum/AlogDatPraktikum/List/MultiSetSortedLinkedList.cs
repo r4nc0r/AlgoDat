@@ -10,7 +10,7 @@ namespace AlogDatPraktikum
     {
         public new bool Delete(int elem)
         {
-           return base.DeleteAllSameElements(elem);
+            return base.Delete(elem);
         }
 
         public bool Insert(int elem)

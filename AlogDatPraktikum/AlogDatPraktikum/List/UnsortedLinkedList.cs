@@ -8,5 +8,20 @@ namespace AlogDatPraktikum
 {
    abstract class UnsortedLinkedList : BaseList
     {
+        public override void Add(int Element)
+        {
+            if (Root == null)
+            {
+                AddFirst(Element);
+            }
+            else
+            {
+                Last.next = new LinkedListNode { elem = new DictElement(Element) };
+                Last.next.prev = Last;
+                Last = Last.next;
+            }
+        }
+
+       
     }
 }

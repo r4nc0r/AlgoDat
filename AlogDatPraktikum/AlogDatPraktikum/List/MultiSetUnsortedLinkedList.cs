@@ -10,7 +10,7 @@ namespace AlogDatPraktikum
     {
         public new bool Delete(int elem)
         {
-            return base.DeleteAllSameElements(elem);
+            return base.Delete(elem);
         }
 
         public bool Insert(int elem)
@@ -27,6 +27,25 @@ namespace AlogDatPraktikum
         public bool Search(int elem)
         {
             return base.search(elem);
+        }
+
+        protected override bool privateDelete(LinkedListNode Element)
+        {
+            bool flag = base.privateDelete(Element);
+
+            LinkedListNode lfd = Element.next;
+
+            while (lfd != null)
+            {
+                if (lfd.elem.elemValue == Element.elem.elemValue)
+                {
+                    privateDelete(lfd);
+                    break;
+                }
+
+                lfd = lfd.next;
+            }
+            return flag;
         }
     }
 }

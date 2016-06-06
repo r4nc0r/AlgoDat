@@ -14,7 +14,7 @@ namespace AlogDatPraktikum
                 AddFirst(Element);
             else
             {
-                LinkedListNode newElement = new LinkedListNode { elem = Element };
+                LinkedListNode newElement = new LinkedListNode { elem = new DictElement(Element) };
                 LinkedListNode temp = lookingforbigger(Element);
 
                 if (temp == null)
@@ -43,7 +43,7 @@ namespace AlogDatPraktikum
             while (lfd != null)
             {
 
-                if (lfd.elem < Element)
+                if (lfd.elem.elemValue < Element)
                 {
                     lfd = lfd.next;
                 }
@@ -54,36 +54,28 @@ namespace AlogDatPraktikum
             return lfd;
         }
 
-        public override bool DeleteAllSameElements(int elem)
+        protected override bool privateDelete(LinkedListNode Element)
         {
-            bool delete = false;
-            LinkedListNode lfd = base.privatesearch(elem);
+            if (Element == null)
+                return false;
+           bool flag = base.privateDelete(Element);
 
-            if (lfd == null)
+            if (Element.next != null && Element.next.elem.elemValue == Element.elem.elemValue) 
             {
-                return delete;
+                privateDelete(Element.next);
             }
 
-            while (lfd.next != null && lfd.next.elem == elem)
+            if ((Element.prev != null && Element.prev.elem.elemValue == Element.elem.elemValue))
             {
-                delete = Delete(lfd);
-                lfd = lfd.next;
+                privateDelete(Element.prev);
             }
 
-            delete = Delete(lfd);
-
-            return delete;
+            return flag;
         }
-
 
         public override bool search(int Element)
         {
-            if (Root == null || Element < Root.elem || Element > Last.elem)
-            {
-                return false;
-            }
-
-            if (privatesearch(Element) != null)
+            if (this.privatesearch(Element) != null)
                 return true;
             else
                 return false;
@@ -93,15 +85,21 @@ namespace AlogDatPraktikum
         {
             LinkedListNode lfd = null;
 
-            if (Root == null || Element < Root.elem || Element > Last.elem)
+            if (Root == null || Element < Root.elem.elemValue || Element > Last.elem.elemValue)
             {
-                return lfd;
+                return null;
             }
+
+            if (Root.elem.elemValue == Element)
+                return Root;
+
+            if (Last.elem.elemValue == Element)
+                return Last;
 
             lfd = Root;
             do
             {
-                if (lfd.elem < Element)
+                if (lfd.elem.elemValue < Element)
                 {
                     if (lfd.next.next != null)
                     {
@@ -109,17 +107,19 @@ namespace AlogDatPraktikum
                     }
                     else
                     {
-                        if (lfd.next.elem == Element)
+                        if (lfd.next.elem.elemValue == Element)
                         {
                             return lfd.next;
                         }
+
+                       
                     }
                 }
                 else
                 {
-                    if (lfd.elem == Element)
+                    if (lfd.elem.elemValue == Element)
                         return lfd;
-                    else if (lfd.prev.elem == Element)
+                    else if (lfd.prev.elem.elemValue == Element)
                         return lfd.prev;
                     else
                         lfd = null;
