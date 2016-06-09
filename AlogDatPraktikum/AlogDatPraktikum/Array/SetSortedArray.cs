@@ -8,19 +8,14 @@ namespace AlogDatPraktikum
 {
     class SetSortedArray : SortedArray, SortedSet
     {
-        static private int ArraySize = 20;
-        int negative;
         private int[] SetSorted;
 
         public SetSortedArray(int size)
         {
-            int counter = -size;
-            negative = -size;
-            SetSorted = new int[ArraySize];
-            for (int i = 0; i < ArraySize; i++)
+            SetSorted = new int[size];
+            for (int i = 0; i < size; i++)
             {
-                SetSorted[i] = counter;
-                counter++;
+                SetSorted[i] = -1;
             }
         }
     
@@ -30,8 +25,7 @@ namespace AlogDatPraktikum
             int position = base.PrivateSearch(elem, SetSorted);
             if (SetSorted[position]== elem)
             {
-                negative--;
-                outcome = PrivateDelete(ref SetSorted, position, negative);
+                outcome = PrivateDelete(ref SetSorted, position);
             }
             return outcome;
         }

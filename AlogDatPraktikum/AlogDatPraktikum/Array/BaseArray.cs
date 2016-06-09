@@ -27,7 +27,7 @@ namespace AlogDatPraktikum
         public int[] ShiftArrayLeft(int[] array, int startPosition,  int endPosition)
         {
             int tempPosition = endPosition;
-            for (int i = startPosition; i < array.Length -endPosition- 1; i++)
+            for (int i = startPosition; i >= endPosition; i--)
             {
                 array[tempPosition] = array[tempPosition + 1];
                 tempPosition = tempPosition + 1;
@@ -47,7 +47,7 @@ namespace AlogDatPraktikum
         }
         public bool IsSpaceAvailable(int[] array)
         {
-            for (int i = 19; i >= 0; i--)
+            for (int i = array.Length -1; i >= 0; i--)
             {
                 if (array[i] < 0)
                 {

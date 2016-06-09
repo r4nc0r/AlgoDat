@@ -8,19 +8,14 @@ namespace AlogDatPraktikum
 {
     class MultiSetSortedArray : SortedArray, SortedMultiSet
     {
-        static private int ArraySize = 20;
-        int negative;
         private int[] MultiSetSorted;
 
         public MultiSetSortedArray(int size)
         {
-            int counter = -size;
-            negative = -size;
-            MultiSetSorted = new int[ArraySize];
-            for (int i = 0; i < ArraySize; i++)
+            MultiSetSorted = new int[size];
+            for (int i = 0; i < size; i++)
             {
-                MultiSetSorted[i] = counter;
-                counter++;
+                MultiSetSorted[i] = -1;
             }
         }
 
@@ -32,8 +27,7 @@ namespace AlogDatPraktikum
                 int position = base.PrivateSearch(elem, MultiSetSorted);
                 if (MultiSetSorted[position] == elem)
                 {
-                    negative--;
-                    outcome = PrivateDelete(ref MultiSetSorted, position, negative);
+                    outcome = PrivateDelete(ref MultiSetSorted, position);
                 }
             }
             return outcome;
