@@ -152,7 +152,7 @@ namespace AlogDatPraktikum
                     Console.WriteLine("Eingabe beendet");
                     break;
                 }
-                if (Dict.Search(input))
+                if (Dict.Search(input) == true)
                 {
                     //Console.WriteLine(Dict.Search(input));
                     Console.Clear();
