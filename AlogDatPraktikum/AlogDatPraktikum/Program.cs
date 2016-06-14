@@ -280,8 +280,7 @@ namespace AlogDatPraktikum
                             Dict = new SetSortedLinkedList();
                             break;
                         case 2:
-                            Console.WriteLine("Größe angeben: ");
-                            Dict = new SetSortedArray(intRead());
+                            Dict = new SetSortedArray();
                             break;
                         case 3:
                             Dict = new AVLTree();
@@ -322,7 +321,7 @@ namespace AlogDatPraktikum
                             Dict = new MultiSetSortedLinkedList();
                             break;
                         case 2:
-                            Dict = new MultiSetSortedArray(20);
+                            Dict = new MultiSetSortedArray();
                             break;
                         default:
                             Dict = new MultiSetSortedLinkedList();

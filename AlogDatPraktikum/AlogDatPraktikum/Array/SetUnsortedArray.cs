@@ -8,34 +8,30 @@ namespace AlogDatPraktikum
 {
     class SetUnsortedArray : UnsortedArray, Set
     {
-        int arrayLength = 20;
-        int[] SetUnsorted;
+        DictElement[] SetUnsorted;
+        private int ExistingElements, arrayLength;
+
         public SetUnsortedArray()
         {
-            SetUnsorted = new int[arrayLength];
-            for (int i = 0; i < arrayLength; i++)
-            {
-                SetUnsorted[i] = -1;
-            }
+            Console.Write("Größe angeben:");
+            arrayLength = Console.Read();
+            SetUnsorted = new DictElement[arrayLength];
+
+            ExistingElements = 0;
+
+            SetUnsorted = initArray(SetUnsorted);
         }
         
         public bool Delete(int elem)
         {
-           return base.Delete(elem, SetUnsorted);
+            return base.Delete(elem, ref SetUnsorted, ref ExistingElements);
         }
 
         public bool Insert(int elem)
         {
             if (base.privateSearch(elem, SetUnsorted) == -1)
             {
-                int insertPosition = base.insertSearch(SetUnsorted);
-                if (insertPosition != -1)
-                {
-                    SetUnsorted[insertPosition] = elem;
-                    return true;
-                }
-                else
-                    return false;
+                return Insert(elem, ref SetUnsorted, ref ExistingElements);
             }
             else
             {

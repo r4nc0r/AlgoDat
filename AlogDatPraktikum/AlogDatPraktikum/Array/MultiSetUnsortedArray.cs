@@ -8,32 +8,33 @@ namespace AlogDatPraktikum
 {
     class MultiSetUnsortedArray : UnsortedArray, MultiSet
     {
-        int arrayLength = 20;
-        int[] MultiSetUnsorted;
+        DictElement[] MultiSetUnsorted;
+        private int ExistingElements, arrayLength;//ExistingElements ist ein Counter für die vorhandenen Elemente, arrayLength spiegelt die größe des Arrays wieder
+
+
         public MultiSetUnsortedArray()
         {
-            MultiSetUnsorted = new int[arrayLength];
-            for (int i = 0; i < arrayLength; i++)
-            {
-                MultiSetUnsorted[i] = -1;
-            }
+            Console.Write("Größe angeben:");
+            arrayLength = Console.Read();
+            MultiSetUnsorted = new DictElement[arrayLength];
+
+            ExistingElements = 0;
+            MultiSetUnsorted = initArray(MultiSetUnsorted);
         }
 
         public bool Delete(int elem)
         {
-            return base.Delete(elem, MultiSetUnsorted);
+            while (Search(elem))
+            {
+                return base.Delete(elem, ref MultiSetUnsorted, ref ExistingElements);
+            }
+            return false;
+            
         }
 
         public bool Insert(int elem)
         {
-                int insertPosition = base.insertSearch(MultiSetUnsorted);
-                if (insertPosition != -1)
-                {
-                    MultiSetUnsorted[insertPosition] = elem;
-                    return true;
-                }
-                else
-                    return false;
+            return Insert(elem, ref MultiSetUnsorted, ref ExistingElements);
         }
 
         public void Print()

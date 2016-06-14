@@ -8,22 +8,22 @@ namespace AlogDatPraktikum
 {
     class SetSortedArray : SortedArray, SortedSet
     {
-        private int[] SetSorted;
-
-        public SetSortedArray(int size)
+        private DictElement[] SetSorted;
+        int arrayLength;
+        public SetSortedArray()
         {
-            SetSorted = new int[size];
-            for (int i = 0; i < size; i++)
-            {
-                SetSorted[i] = -1;
-            }
+            Console.Write("Größe angeben:");
+            arrayLength = Console.Read();
+            SetSorted = new DictElement[arrayLength];
+
+            SetSorted = initArray(SetSorted);
         }
     
         public bool Delete(int elem)
         {
             bool outcome = false;
             int position = base.PrivateSearch(elem, SetSorted);
-            if (SetSorted[position]== elem)
+            if (SetSorted[position].elemValue == elem)
             {
                 outcome = PrivateDelete(ref SetSorted, position);
             }
@@ -34,7 +34,7 @@ namespace AlogDatPraktikum
         {
             int position = PrivateSearch(elem, SetSorted);
             bool outcome = false;
-            if (SetSorted[position] != elem)
+            if (SetSorted[position].elemValue != elem)
             {
                 outcome = PrivateInsert(elem,ref SetSorted, position);
             }
@@ -54,7 +54,7 @@ namespace AlogDatPraktikum
             {
                 return false;
             }
-            else if (SetSorted[position] == elem)
+            else if (SetSorted[position].elemValue == elem)
             {
                 return true;
             }
