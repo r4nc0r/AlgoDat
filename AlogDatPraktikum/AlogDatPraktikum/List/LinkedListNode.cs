@@ -8,7 +8,7 @@ namespace AlogDatPraktikum
 {
     class LinkedListNode
     {
-        public int elem;
+        public DictElement elem;
         public LinkedListNode next= null, prev=null;
     }
 }

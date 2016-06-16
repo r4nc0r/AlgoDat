@@ -8,20 +8,15 @@ namespace AlogDatPraktikum
 {
     class MultiSetSortedArray : SortedArray, SortedMultiSet
     {
-        static private int ArraySize = 20;
-        int negative;
-        private int[] MultiSetSorted;
-
-        public MultiSetSortedArray(int size)
+        private DictElement[] MultiSetSorted;
+        int arrayLength;
+        public MultiSetSortedArray()
         {
-            int counter = -size;
-            negative = -size;
-            MultiSetSorted = new int[ArraySize];
-            for (int i = 0; i < ArraySize; i++)
-            {
-                MultiSetSorted[i] = counter;
-                counter++;
-            }
+            Console.Write("Größe angeben:");
+            arrayLength = Console.Read();
+            MultiSetSorted = new DictElement[arrayLength];
+
+            MultiSetSorted = initArray(MultiSetSorted);
         }
 
         public bool Delete(int elem)
@@ -30,10 +25,9 @@ namespace AlogDatPraktikum
             while(Search(elem))
             {
                 int position = base.PrivateSearch(elem, MultiSetSorted);
-                if (MultiSetSorted[position] == elem)
+                if (MultiSetSorted[position].elemValue == elem)
                 {
-                    negative--;
-                    outcome = PrivateDelete(ref MultiSetSorted, position, negative);
+                    outcome = PrivateDelete(ref MultiSetSorted, position);
                 }
             }
             return outcome;
@@ -60,7 +54,7 @@ namespace AlogDatPraktikum
             {
                 return false;
             }
-            else if (MultiSetSorted[position] == elem)
+            else if (MultiSetSorted[position].elemValue == elem)
             {
                 return true;
             }

@@ -8,7 +8,7 @@ namespace AlogDatPraktikum
 {
     class HashTabQuadProb : BaseHash, Set
     {
-        int[] hashTab;
+        DictElement[] hashTab;
         int TabLength, freespace;
         public HashTabQuadProb()
         {
@@ -16,8 +16,9 @@ namespace AlogDatPraktikum
             Console.Write("Bitte geben Sie eine Primzahl ein ");
             int inp = Convert.ToInt32(Console.ReadLine());
 
+
             TabLength = calcNextPrim(inp);
-            hashTab = new int[TabLength];
+            hashTab = new DictElement[TabLength];
             Console.WriteLine(TabLength);
             initHashTab();
         }
@@ -28,7 +29,7 @@ namespace AlogDatPraktikum
         {
             for (int i = 0; i < hashTab.Length; i++)
             {
-                hashTab[i] = -1;
+                hashTab[i] = new DictElement(-1);
             }
         }
 
@@ -38,7 +39,7 @@ namespace AlogDatPraktikum
             if (pos == -1 )
                 return false;
 
-            hashTab[pos] = -1;
+            hashTab[pos].elemValue = -1;
                 return true;
             
             
@@ -54,12 +55,12 @@ namespace AlogDatPraktikum
                     Console.WriteLine("Kein Speicherplatz vorhanden");
                     return false;
                 }
-                if (hashTab[pos] == elem)
+                if (hashTab[pos].elemValue == elem)
                 { return false; }
-                if (hashTab[pos] == -1)
+                if (hashTab[pos].elemValue == -1)
                 {
                     freespace--;
-                    hashTab[pos] = elem;
+                    hashTab[pos].elemValue = elem;
                     return true;
                 }
             }
@@ -71,14 +72,15 @@ namespace AlogDatPraktikum
         {
             for (int i = 0; i < hashTab.Length; i++)
             {
-                if (hashTab[i] > -1)
-                    Console.WriteLine("Key {0}, Index: {1}", hashTab[i], i);
+                if (hashTab[i].elemValue > -1)
+                    Console.WriteLine("Key {0}, Index: {1}", hashTab[i].elemValue, i);
             }
         }
 
         public bool Search(int elem)
         {
-            if (hashTab[privSearch(elem)] != -1) 
+            int pos = privSearch(elem);
+            if (pos!=-1 && hashTab[pos].elemValue != -1)
                 return true;
             return false;
         }
@@ -93,10 +95,8 @@ namespace AlogDatPraktikum
                 {
                     return -1;
                 }
-                if (hashTab[pos] == elem)
+                if (hashTab[pos].elemValue == elem)
                     return pos;
-                //else if (hashTab[pos] == -1)
-                //    return -1;
             }
             return -1;
         }
@@ -115,40 +115,19 @@ namespace AlogDatPraktikum
             return Input;
         }
     
-        //private int calculateC(int Min)
-        //{
-        //    bool flag = false;
-        //    int i = Min;
-        //    while (!flag)
-        //    {
-        //        int n = 2;
-
-        //        // Schleife ueber alle moeglichen Teiler n des Primzahlkandidaten i:
-        //        while (i % n != 0 && n <= i / 2 && i % 4 == 3)
-        //        {
-        //            n++;
-        //        }
-        //        // Falls die Schleife bis zur Obergrenze i/2 durchlaufen wurde:
-        //        if (n >= i / 2 + 1 && i != 1)
-        //        {
-        //            Console.WriteLine(" Tabellenlänge=" + i);
-        //            flag = true;
-        //            return i;
-        //        }
-        //        i++;
-        //    }
-        //    throw new NullReferenceException("keine Primzahl der gewünschten Form berechenbar");
-        //}
+       
 
         private int calcHash(int Element, int j, int c)
         {
+
             int mult = (int)(Math.Ceiling(j  / 2.0));
             mult = mult * mult;
             int temp = hashfuntion(Element, c) + (int)(Math.Pow(-1, (j + 1)) * mult);
 
             if (temp <= -1)
             {
-                temp = temp + c;
+                int ring = (temp * -1 )/ c + 1;
+                temp = temp + c*ring;
             }
             return temp = hashfuntion(temp ,TabLength);
      

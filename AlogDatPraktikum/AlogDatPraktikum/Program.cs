@@ -113,7 +113,7 @@ namespace AlogDatPraktikum
                 }
                 if (Dict.Insert(input))
                 {
-                    Console.WriteLine(Dict.Insert(input));
+                   // Console.WriteLine(Dict.Print());
                     Console.Clear();
                     Ueberschrift(1);
                     Ueberschrift(0, Dict.ToString());
@@ -152,9 +152,9 @@ namespace AlogDatPraktikum
                     Console.WriteLine("Eingabe beendet");
                     break;
                 }
-                if (Dict.Search(input))
+                if (Dict.Search(input) == true)
                 {
-                    Console.WriteLine(Dict.Search(input));
+                    //Console.WriteLine(Dict.Search(input));
                     Console.Clear();
                     Ueberschrift(1);
                     Ueberschrift(0, Dict.ToString());
@@ -195,7 +195,7 @@ namespace AlogDatPraktikum
                 }
                 if (Dict.Delete(input))
                 {
-                    Console.WriteLine(Dict.Delete(input));
+                    //Console.WriteLine(Dict.Delete(input));
                     Console.Clear();
                     Ueberschrift(1);
                     Ueberschrift(0, Dict.ToString());
@@ -280,8 +280,7 @@ namespace AlogDatPraktikum
                             Dict = new SetSortedLinkedList();
                             break;
                         case 2:
-                            Console.WriteLine("Größe angeben: ");
-                            Dict = new SetSortedArray(intRead());
+                            Dict = new SetSortedArray();
                             break;
                         case 3:
                             Dict = new AVLTree();
@@ -322,7 +321,7 @@ namespace AlogDatPraktikum
                             Dict = new MultiSetSortedLinkedList();
                             break;
                         case 2:
-                            Dict = new MultiSetSortedArray(20);
+                            Dict = new MultiSetSortedArray();
                             break;
                         default:
                             Dict = new MultiSetSortedLinkedList();

@@ -8,14 +8,20 @@ namespace AlogDatPraktikum
 {
     abstract class SortedArray : BaseArray
     {
-        public bool PrivateDelete(ref int[] array, int position, int negative)
+        public bool PrivateDelete(ref DictElement[] array, int position)
         {
-            ShiftArrayRight(array,position, 0);
-            array[0] = negative;
+            ShiftArrayLeft(array,array.Length-2, position);
+            array[array.Length -1].elemValue = -1;
             return true;
         }
 
-        public int PrivateSearch(int elem, int[] array)
+        /// <summary>
+        /// Binär Suche 
+        /// </summary>
+        /// <param name="elem"></param>
+        /// <param name="array"></param>
+        /// <returns></returns>
+        public int PrivateSearch(int elem, DictElement[] array)
         {
             
             int i;
@@ -26,24 +32,28 @@ namespace AlogDatPraktikum
             while(position == -1 && l <= r )
             {
                 i = (l + r) / 2;
-                if (array[i] < elem )
+                if (array[i].elemValue < elem && array[i].elemValue != -1 )
                 {
                     l = i + 1;
                 }
-                else if (array[i] > elem)
+                else if (array[i].elemValue > elem || array[i].elemValue == -1)
                 {
                     r = i - 1;
                 }
-                if (array[i] == elem)
+                if (array[i].elemValue == elem)
                 {
-                    while (array[i + 1] == array[i])
+                    if (i != array.Length-1)
                     {
-                        if (i == array.Length-2)
+                        while (array[i + 1] == array[i])
                         {
-                            break;
+                            if (i == array.Length - 2)
+                            {
+                                break;
+                            }
+                            i++;
                         }
-                        i++;
                     }
+
                     position = i;
                 }
             }
@@ -51,46 +61,24 @@ namespace AlogDatPraktikum
 
             if (position == -1)
             {
-                int x;
-                for (x= 0; x < array.Length-1; x++)
-                {
-                    if (elem <0 && array[x+1]>elem )
-                    {
-                        return x;
-                    }
-                    if (array[x] < elem && array[x+1] > elem)
-                    {
-
-                        return x;
-                    }
-                    if (x == array.Length -2)
-                    {
-                        return x + 1;
-                    }
-                }
-
+                position = r + 1;
             }
             return position;
         }
 
-        public bool PrivateInsert(int elem,ref int[] array, int position)
+        public bool PrivateInsert(int elem,ref DictElement[] array, int position)
         {
             if (position == -1 || position + 1 > array.Length)
             {
                 return false;
             }
-
-            if (IsSpaceAvailable(array))
-            {
-                array = ShiftArrayLeft(array, 0,0);
-            }
             
-            if (array[position] > elem)
+            if (array[position].elemValue > elem || array[position].elemValue == elem)
             {
                 array = ShiftArrayRight(array, array.Length -1,position);
             }
             
-            array[position] = elem;
+            array[position].elemValue = elem;
             return true;
         }
 
