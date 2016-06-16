@@ -16,5 +16,16 @@ namespace AlogDatPraktikum
         {
             this.elem = new DictElement(value);
         }
+
+        public void _Print_(int level, Direction dir)
+        {
+            string output = new String(' ', 5 * level);
+            if (dir == Direction.left)
+                output += "\\";
+            else if (dir == Direction.right)
+                output += "/";
+            output += elem.elemValue;            
+            Console.WriteLine(output);
+        }
     }
 }
