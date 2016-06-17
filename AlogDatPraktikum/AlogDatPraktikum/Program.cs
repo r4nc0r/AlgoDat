@@ -113,7 +113,7 @@ namespace AlogDatPraktikum
                 }
                 if (Dict.Insert(input))
                 {
-                   // Console.WriteLine(Dict.Print());
+                    Console.WriteLine(Dict.Insert(input));
                     Console.Clear();
                     Ueberschrift(1);
                     Ueberschrift(0, Dict.ToString());
@@ -152,9 +152,9 @@ namespace AlogDatPraktikum
                     Console.WriteLine("Eingabe beendet");
                     break;
                 }
-                if (Dict.Search(input) == true)
+                if (Dict.Search(input))
                 {
-                    //Console.WriteLine(Dict.Search(input));
+                    Console.WriteLine(Dict.Search(input));
                     Console.Clear();
                     Ueberschrift(1);
                     Ueberschrift(0, Dict.ToString());
@@ -195,7 +195,7 @@ namespace AlogDatPraktikum
                 }
                 if (Dict.Delete(input))
                 {
-                    //Console.WriteLine(Dict.Delete(input));
+                    Console.WriteLine(Dict.Delete(input));
                     Console.Clear();
                     Ueberschrift(1);
                     Ueberschrift(0, Dict.ToString());
@@ -254,7 +254,7 @@ namespace AlogDatPraktikum
             {
                 case 1:
                     Ueberschrift(0, "Set");
-                    konkrDatentyp = LittleMenu(message, "SetUnsortedLinkedList", "SetUnsortedArray", "BinTree");
+                    konkrDatentyp = LittleMenu(message, "SetUnsortedLinkedList", "SetUnsortedArray");
                     switch (konkrDatentyp)
                     {
                         case 1:
@@ -263,9 +263,7 @@ namespace AlogDatPraktikum
                         case 2:
                             Dict = new SetUnsortedArray();
                             break;
-                        case 3:
-                            Dict = new BinTree();
-                            break;
+
                         default:
                             Dict = new SetSortedLinkedList();
                             break;
@@ -273,7 +271,7 @@ namespace AlogDatPraktikum
                     break;
                 case 2:
                     Ueberschrift(0, "SortedSet");
-                    konkrDatentyp = LittleMenu(message, "SetSortedLinkedList", "SetSortedArray", "AvlTree","HashTabQuadProb","HashTabSepChain");
+                    konkrDatentyp = LittleMenu(message, "SetSortedLinkedList", "SetSortedArray", "AvlTree", "BinTree", "HashTabQuadProb","HashTabSepChain");
                     switch (konkrDatentyp)
                     {
                         case 1:
@@ -286,9 +284,12 @@ namespace AlogDatPraktikum
                             Dict = new AVLTree();
                             break;
                         case 4:
-                            Dict = new HashTabQuadProb();
+                            Dict = new BinTree();
                             break;
                         case 5:
+                            Dict = new HashTabQuadProb();
+                            break;
+                        case 6:
                             Dict = new HashTabSepChain();
                             break;
                         default:
