@@ -9,12 +9,9 @@ namespace AlogDatPraktikum
     class SetSortedArray : SortedArray, SortedSet
     {
         private DictElement[] SetSorted;
-        int arrayLength;
-        public SetSortedArray()
+        public SetSortedArray(int size)
         {
-            Console.Write("Größe angeben:");
-            arrayLength = Console.Read();
-            SetSorted = new DictElement[arrayLength];
+            SetSorted = new DictElement[size];
 
             SetSorted = initArray(SetSorted);
         }

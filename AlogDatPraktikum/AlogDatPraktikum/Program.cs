@@ -261,7 +261,8 @@ namespace AlogDatPraktikum
                             Dict = new SetUnsortedLinkedList();
                             break;
                         case 2:
-                            Dict = new SetUnsortedArray();
+                            Console.Write("Größe angeben:");
+                            Dict = new SetUnsortedArray(Convert.ToInt32(Console.ReadLine()));
                             break;
 
                         default:
@@ -278,7 +279,8 @@ namespace AlogDatPraktikum
                             Dict = new SetSortedLinkedList();
                             break;
                         case 2:
-                            Dict = new SetSortedArray();
+                            Console.Write("Größe angeben:");
+                            Dict = new SetSortedArray(Convert.ToInt32(Console.ReadLine()));
                             break;
                         case 3:
                             Dict = new AVLTree();
@@ -306,7 +308,8 @@ namespace AlogDatPraktikum
                             Dict = new MultiSetUnsortedLinkedList();
                             break;
                         case 2:
-                            Dict = new MultiSetUnsortedArray();
+                            Console.Write("Größe angeben:");
+                            Dict = new MultiSetUnsortedArray(Convert.ToInt32(Console.ReadLine()));
                             break;
                         default:
                             Dict = new MultiSetUnsortedLinkedList();
@@ -322,7 +325,8 @@ namespace AlogDatPraktikum
                             Dict = new MultiSetSortedLinkedList();
                             break;
                         case 2:
-                            Dict = new MultiSetSortedArray();
+                            Console.Write("Größe angeben:");
+                            Dict = new MultiSetSortedArray(Convert.ToInt32(Console.ReadLine()));
                             break;
                         default:
                             Dict = new MultiSetSortedLinkedList();

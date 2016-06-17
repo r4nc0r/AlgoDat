@@ -9,13 +9,11 @@ namespace AlogDatPraktikum
     class SetUnsortedArray : UnsortedArray, Set
     {
         DictElement[] SetUnsorted;
-        private int ExistingElements, arrayLength;
+        private int ExistingElements;
 
-        public SetUnsortedArray()
+        public SetUnsortedArray(int size)
         {
-            Console.Write("Größe angeben:");
-            arrayLength = Console.Read();
-            SetUnsorted = new DictElement[arrayLength];
+            SetUnsorted = new DictElement[size];
 
             ExistingElements = 0;
 

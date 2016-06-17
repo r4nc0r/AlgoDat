@@ -9,12 +9,9 @@ namespace AlogDatPraktikum
     class MultiSetSortedArray : SortedArray, SortedMultiSet
     {
         private DictElement[] MultiSetSorted;
-        int arrayLength;
-        public MultiSetSortedArray()
+        public MultiSetSortedArray(int size)
         {
-            Console.Write("Größe angeben:");
-            arrayLength = Console.Read();
-            MultiSetSorted = new DictElement[arrayLength];
+            MultiSetSorted = new DictElement[size];
 
             MultiSetSorted = initArray(MultiSetSorted);
         }
