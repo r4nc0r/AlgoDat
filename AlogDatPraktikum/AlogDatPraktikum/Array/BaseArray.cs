@@ -13,11 +13,7 @@ namespace AlogDatPraktikum
             Console.Write("[");
             for (int i = 0; i < array.Length; i++)
             {
-                if (i == array.Length-1)
-                {
-                    Console.Write(" {0} ", array[i].elemValue);
-                }
-                else if (array[i].elemValue > -1)
+                if (array[i].elemValue > -1)
                 { 
                     Console.Write(" {0} |",array[i].elemValue);
                 }
