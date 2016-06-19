@@ -8,7 +8,13 @@ namespace AlogDatPraktikum
 {
     abstract class BaseHash 
     {
-
+        /// <summary>
+        /// prüft ob eine Zeit eine Primzahl ist
+        /// dazu wird die übergebene Zahl durch alle Teiler von 2 bis zur Wurzel der
+        /// Zahl geteilt und geprüft ob der Rest der Division=0 ist
+        /// </summary>
+        /// <param name="Input"></param>
+        /// <returns></returns>
         protected bool isPrim(int Input)
         {
             for (int i = 2; i <= Math.Sqrt(Input); i++)
@@ -16,6 +22,12 @@ namespace AlogDatPraktikum
                     return false;
             return true;
         }
+        /// <summary>
+        /// diese Methode berechnet die nächstgelegene Primzahl.
+        /// 
+        /// </summary>
+        /// <param name="Input"></param>
+        /// <returns></returns>
         public virtual int calcNextPrim(int Input)
         {
             if (Input % 2 == 0)
@@ -24,60 +36,21 @@ namespace AlogDatPraktikum
                 Input = Input + 2;
             return Input;
         }
-
+        /// <summary>
+        /// Hashfunktion mit Division,
+        /// berechnet aus einem übergebene Wert und einem Modul den HashKey
+        /// </summary>
+        /// <param name="Element"></param>
+        /// <param name="Modul"></param>
+        /// <returns></returns>
         protected int hashfuntion(int Element, int Modul)
         {
             int hashKey = Element % Modul;
             return hashKey;
         }
 
-        //public int DeleteAnItem(int Element)
-        //{
-        //    int pos = hashfuntion(Element);
-        //    if (pos != 0)
-        //    {
-        //        HashTab[pos] = 0;     
-        //    }
-        //    return pos;
-        //}
-
-        /// <summary>
-        /// Wenn eine Zelle schon belegt, wird sie bei einer Kollision nicht überschrieben
-        /// </summary>
-        /// <param name="Element"></param>
-        /// <returns></returns>
-        //public bool Insert(int Element)
-        //{
-        //    int hashvalue = hashfuntion(Element);
-        //    if (HashTab[hashvalue] == -1)
-        //    {
-        //        HashTab[hashvalue] = Element;
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Kollision beim einfügen von {0} an der Stelle {1}", Element, hashvalue);
-        //        return false;
-        //    }
-        //}
         public abstract bool Insert(int Element);
 
-        //public void PrintAll()
-        //{
-        //    foreach (int item in HashTab)
-        //    {
-        //        Console.WriteLine(item);
-        //    }
-        //}
-
-        //public void Print()
-        //{
-        //    for (int i = 0; i < HashTab.Length; i++)
-        //    {
-        //        if(HashTab[i] >-1)
-        //        Console.WriteLine("Key {0}, Index: {1}" ,HashTab[i],i);
-        //    }
-        //}
         public abstract void Print();
 
     }

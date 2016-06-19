@@ -11,10 +11,7 @@ namespace AlogDatPraktikum
 
         SetUnsortedLinkedList[] hashChain;
         private int TabLength;
-        /// <summary>
-        /// Problem noch mit basisklassen konstruktor, es wird immer ein basehash tabelle erstellt
-        /// hab noch keine idee das zu umgehen
-        /// </summary>
+
         public HashTabSepChain()
         {
             Console.WriteLine("wie groß soll die Hashtabelle sein?");
@@ -30,6 +27,7 @@ namespace AlogDatPraktikum
             int hashvalue = base.hashfuntion(elem, TabLength);
             if (hashChain[hashvalue] != null)
             {
+                //Delete Methode der SetUnsortedLinkedList 
                 bool flag= hashChain[hashvalue].Delete(elem);
                 //Falls Liste nach dem löschen eines Elements leer, dann Eintrag in HashChain auf Null setzten
                 if (hashChain[hashvalue].Root == null)
@@ -39,6 +37,13 @@ namespace AlogDatPraktikum
                 return false;
         }
 
+        /// <summary>
+        /// Hashkey berechnen, wenn an dieser Stelle im Array noch 
+        /// kein Wert ist wird eine neue SetUnsortedLinkedList erstellt
+        /// und der Wert eingefügt
+        /// </summary>
+        /// <param name="elem"></param>
+        /// <returns></returns>
         public override bool Insert(int elem)
         {
             int hashValue = base.hashfuntion(elem,TabLength);
@@ -52,12 +57,12 @@ namespace AlogDatPraktikum
 
         public override void Print()
         {
-            foreach (SetUnsortedLinkedList item in hashChain)
+            for (int i = 0; i < hashChain.Length; i++)
             {
-                if (item != null)
+                if(hashChain[i]!=null)
                 {
-                    item.Print();
-                    Console.WriteLine();
+                    Console.Write("Key: {0} Values: " , i);
+                    hashChain[i].Print();
                 }
             }
         }

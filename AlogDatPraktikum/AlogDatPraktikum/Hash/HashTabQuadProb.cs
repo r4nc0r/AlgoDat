@@ -16,10 +16,8 @@ namespace AlogDatPraktikum
             Console.Write("Bitte geben Sie eine Primzahl ein ");
             int inp = Convert.ToInt32(Console.ReadLine());
 
-
             TabLength = calcNextPrim(inp);
             hashTab = new DictElement[TabLength];
-            Console.WriteLine(TabLength);
             initHashTab();
         }
         /// <summary>
@@ -33,18 +31,27 @@ namespace AlogDatPraktikum
             }
         }
 
+        /// <summary>
+        /// existiert das zu löschende Element wird das Value mit -1 überschrieben
+        /// und true returned
+        /// </summary>
+        /// <param name="elem"></param>
+        /// <returns></returns>
         public bool Delete(int elem)
         {
             int pos = privSearch(elem);
             if (pos == -1 )
                 return false;
-
+            
             hashTab[pos].elemValue = -1;
-                return true;
-            
-            
+                return true;  
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="elem"></param>
+        /// <returns></returns>
         public override bool Insert(int elem)
         {
             for (int i = 0; i < TabLength; i++)
@@ -52,7 +59,6 @@ namespace AlogDatPraktikum
                 int pos = calcHash(elem, i, TabLength);
                 if(pos < 0)
                 {
-                    Console.WriteLine("Kein Speicherplatz vorhanden");
                     return false;
                 }
                 if (hashTab[pos].elemValue == elem)
@@ -64,7 +70,6 @@ namespace AlogDatPraktikum
                     return true;
                 }
             }
-
             return false;
         }
 
@@ -85,22 +90,36 @@ namespace AlogDatPraktikum
             return false;
         }
 
+        /// <summary>
+        /// brechent den Key eines Elements und prüft ob das zu suchende Element 
+        /// sich an dieser Position befindet. Dabei wird die Sondierfolge durchschritten
+        /// </summary>
+        /// <param name="elem"></param>
+        /// <returns></returns>
         private int privSearch(int elem)
         {
             for (int i = 0; i < TabLength; i++)
             {
-             
                 int pos = calcHash(elem, i, TabLength);
                 if (pos < 0)
                 {
+                    //ist die gesamte Sondierfolge durchlaufen ohne dass das ELement
+                    //gefunden wurde, wird -1 returnt
                     return -1;
                 }
                 if (hashTab[pos].elemValue == elem)
+                    //wenn sich das gesuchte Element an der Position befindet wird die Position zurückgeliefert
                     return pos;
             }
             return -1;
         }
-
+        /// <summary>
+        /// Überschreibt die calcNextPrim aus der BaseHash Klasse in der 
+        /// Form dass die resultierende Primzahl Konkurent 4mod 3 ist
+        /// dadurch kann sichergestellt werden dass alle Plätze sondiert werden
+        /// </summary>
+        /// <param name="Input"></param>
+        /// <returns></returns>
         public override int calcNextPrim(int Input)
         {
 
@@ -109,21 +128,32 @@ namespace AlogDatPraktikum
             {
                 Input += 2;
                 Input = base.calcNextPrim(Input);
-
             } 
-
             return Input;
         }
     
        
-
+        /// <summary>
+        /// Berechent den HashKey, 
+        /// h(Element,j)=(h`(ELement)+(-1)^i+1*(round i*i/2) mod c
+        /// brechent den nächsten hashkey
+        /// </summary>
+        /// <param name="Element"></param>
+        /// <param name="j">mit j, der Anzahl der Sondierschritte wird quasi entschieden ob eine positive oder 
+        /// negatives Quadrart verwendet wird</param>
+        /// <param name="c">mit dem Parameter c kann die Sondierfolge beeinflusst werden. Hier wird nur Tablength verwendet
+        /// Theoretisch könnte man aber auch eine andere Zahl angeben</param>
+        /// <returns></returns>
         private int calcHash(int Element, int j, int c)
         {
-
+            //hier wird berechenet ob das positive oder negative Quadrat verwendet wird
             int mult = (int)(Math.Ceiling(j  / 2.0));
+            //quadrieren
             mult = mult * mult;
+             
             int temp = hashfuntion(Element, c) + (int)(Math.Pow(-1, (j + 1)) * mult);
-
+            
+            //
             if (temp <= -1)
             {
                 int ring = (temp * -1 )/ c + 1;
