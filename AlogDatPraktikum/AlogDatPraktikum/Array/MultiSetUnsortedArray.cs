@@ -9,14 +9,12 @@ namespace AlogDatPraktikum
     class MultiSetUnsortedArray : UnsortedArray, MultiSet
     {
         DictElement[] MultiSetUnsorted;
-        private int ExistingElements, arrayLength;//ExistingElements ist ein Counter für die vorhandenen Elemente, arrayLength spiegelt die größe des Arrays wieder
+        private int ExistingElements;//ExistingElements ist ein Counter für die vorhandenen Elemente, arrayLength spiegelt die größe des Arrays wieder
 
 
-        public MultiSetUnsortedArray()
+        public MultiSetUnsortedArray(int size)
         {
-            Console.Write("Größe angeben:");
-            arrayLength = Console.Read();
-            MultiSetUnsorted = new DictElement[arrayLength];
+            MultiSetUnsorted = new DictElement[size];
 
             ExistingElements = 0;
             MultiSetUnsorted = initArray(MultiSetUnsorted);
