@@ -19,6 +19,21 @@ namespace AlogDatPraktikum
                 }
             }
             Console.Write("]\n\n");
+            Console.WriteLine("{0} von  {1} belegt",Count(array), array.Length);
+        }
+
+        public int Count(DictElement[] array)
+        {
+          int counter = 0;
+          for (int i = 0; i < array.Length; i++)
+          {
+            if (array[i].elemValue != -1)
+            {
+              counter++;
+            }
+       
+          }
+          return counter;
         }
         public DictElement[] ShiftArrayLeft(DictElement[] array, int startPosition,  int endPosition)
         {

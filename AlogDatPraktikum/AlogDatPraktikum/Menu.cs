@@ -21,6 +21,10 @@ namespace AlogDatPraktikum
                 Console.WriteLine("Falsche Eingabe, bitte Eingabe wiederholen");
                 input = intRead();
             }
+			if (input < -1)
+			{
+				Console.WriteLine("Negative Zahlen nicht erlaubt. Absolutwert eingefügt");
+				input = Math.Abs(input);			}
             return input;
         }
 
@@ -104,7 +108,7 @@ namespace AlogDatPraktikum
         /// Eingabemaske um Elemente einzufügen
         /// </summary>
         /// <param name="Dict"></param>
-        public static void ManualInsert(Dictionary Dict)
+        public static void Input(Dictionary Dict)
         {
             Console.Clear();
 
@@ -120,6 +124,7 @@ namespace AlogDatPraktikum
             {
                 return;
             }
+			
             var result = Dict.Insert(input);
 
             if (result)
@@ -135,7 +140,12 @@ namespace AlogDatPraktikum
             {
                 Console.WriteLine("Einfügen fehlgeschlagen");
             }
-        }
+			Console.WriteLine("Weiter eingeben? (1/-1)");
+			if (intRead() != -1)
+			{
+				Input(Dict);
+			}
+		}
 
         /// <summary>
         /// Eingabemaske um Elemente zu suchen
@@ -164,6 +174,11 @@ namespace AlogDatPraktikum
             {
                 Console.WriteLine("Suchen fehlgeschlagen");
             }
+			Console.WriteLine("Weiter Suchen? (1/-1)");
+			if (intRead() != -1)
+			{
+				Search(Dict);
+			}
         }
 
         /// <summary>
@@ -200,17 +215,22 @@ namespace AlogDatPraktikum
             {
                 Console.WriteLine("Löschen fehlgeschlagen");
             }
+			Console.WriteLine("Weiter löschen? (1/-1)");
+			if (intRead() != -1)
+			{
+				Delete(Dict);
+			}
 
-        }
+		}
 
         public static int EditMenu(Dictionary Dict)
         {
             Dict.Print();
-            int nextStep = LittleMenu("Weitere Bearbeitungsmöglichkeiten: (-1 zum abbrechen)", "Eingeben", "Suchen", "Löschen\n");
+            int nextStep = LittleMenu("\nWeitere Bearbeitungsmöglichkeiten: (-1 zum abbrechen)", "Eingeben", "Suchen", "Löschen", "Tests\n");
             switch (nextStep)
             {
                 case 1:
-                    ManualInsert(Dict);
+                    InputMenu(Dict);
                     break;
                 case 2:
                     Search(Dict);
@@ -218,6 +238,9 @@ namespace AlogDatPraktikum
                 case 3:
                     Delete(Dict);
                     break;
+                case 4:
+                  TestMenu(Dict);
+                break;
                 default:
                     break;
             }
@@ -226,7 +249,10 @@ namespace AlogDatPraktikum
 
         public static Dictionary DataTypeMenu(Dictionary Dict, ref int input)
         {
-            int abstrDatentyp = Menu.LittleMenu("Bitte wählen Sie einen abstrakten Datentyp:", "Set", "SortedSet", "Multiset", "SortedMultiSet");
+			Console.Clear();
+			Menu.Ueberschrift(1);
+
+			int abstrDatentyp = Menu.LittleMenu("Bitte wählen Sie einen abstrakten Datentyp:", "Set", "SortedSet", "Multiset", "SortedMultiSet");
 
             string message = "Bitte wählen Sie einen konkreten Datentyp:";
             int konkrDatentyp;
@@ -372,8 +398,44 @@ namespace AlogDatPraktikum
 
             else
             {
-                Menu.ManualInsert(Dict);
+                Menu.Input(Dict);
             }
         }
-    }
+
+		public static void TestMenu(Dictionary Dict)
+		{
+			int testNr = Menu.LittleMenu("Testen auf...", "...doppelte Einträge", "...zu viele Einträge");
+			Console.Clear();
+
+			Menu.Ueberschrift(1);
+			Menu.Ueberschrift(0, Dict.ToString());
+				
+
+			Console.WriteLine();
+			Console.WriteLine(Dict.GetType().ToString());
+			Console.WriteLine();
+/*
+            switch (testNr)
+			{
+				case 1:
+					// doppelte Einträge
+					foreach (var item in input)
+					{
+						Dict.Insert(item);
+					}
+					break;
+				case 2:
+					//zu viele Einträge
+					int[] input = { 1, 4, 6, 33, 44, 25, 27, 28, 44, 28 };
+					foreach (var item in input)
+					{
+						Dict.Insert(item);
+					}
+					break;
+				default:
+					break;
+			}
+		}
+		*/
+  }
 }

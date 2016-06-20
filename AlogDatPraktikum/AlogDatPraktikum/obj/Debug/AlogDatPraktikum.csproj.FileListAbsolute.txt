@@ -28,3 +28,9 @@ C:\Users\zimme\Documents\Github\AlgoDat\AlogDatPraktikum\AlogDatPraktikum\obj\De
 \\mycloud.informatik.fh-nuernberg.de\Students\zimmermannmi61778\My Documents\GitHubVisualStudio\AlgoDat\AlogDatPraktikum\AlogDatPraktikum\obj\Debug\AlogDatPraktikum.csprojResolveAssemblyReference.cache
 \\mycloud.informatik.fh-nuernberg.de\Students\zimmermannmi61778\My Documents\GitHubVisualStudio\AlgoDat\AlogDatPraktikum\AlogDatPraktikum\obj\Debug\AlogDatPraktikum.exe
 \\mycloud.informatik.fh-nuernberg.de\Students\zimmermannmi61778\My Documents\GitHubVisualStudio\AlgoDat\AlogDatPraktikum\AlogDatPraktikum\obj\Debug\AlogDatPraktikum.pdb
+C:\Users\zimme\Documents\Github\AlgoDat\AlgoDat\AlogDatPraktikum\AlogDatPraktikum\bin\Debug\AlogDatPraktikum.exe.config
+C:\Users\zimme\Documents\Github\AlgoDat\AlgoDat\AlogDatPraktikum\AlogDatPraktikum\obj\Debug\AlogDatPraktikum.exe
+C:\Users\zimme\Documents\Github\AlgoDat\AlgoDat\AlogDatPraktikum\AlogDatPraktikum\obj\Debug\AlogDatPraktikum.pdb
+C:\Users\zimme\Documents\Github\AlgoDat\AlgoDat\AlogDatPraktikum\AlogDatPraktikum\bin\Debug\AlogDatPraktikum.exe
+C:\Users\zimme\Documents\Github\AlgoDat\AlgoDat\AlogDatPraktikum\AlogDatPraktikum\bin\Debug\AlogDatPraktikum.pdb
+C:\Users\zimme\Documents\Github\AlgoDat\AlgoDat\AlogDatPraktikum\AlogDatPraktikum\obj\Debug\AlogDatPraktikum.csprojResolveAssemblyReference.cache

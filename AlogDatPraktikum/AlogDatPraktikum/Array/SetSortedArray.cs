@@ -31,7 +31,7 @@ namespace AlogDatPraktikum
         {
             int position = PrivateSearch(elem, SetSorted);
             bool outcome = false;
-            if (SetSorted[position].elemValue != elem)
+            if (position < SetSorted.Length -1 && SetSorted[position].elemValue != elem)
             {
                 outcome = PrivateInsert(elem,ref SetSorted, position);
             }
