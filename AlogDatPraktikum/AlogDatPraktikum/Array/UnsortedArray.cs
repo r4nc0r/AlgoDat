@@ -48,7 +48,11 @@ namespace AlogDatPraktikum
         }
         public bool Insert(int elem, ref DictElement[] array, ref int ExistingElements)
         {
-            if (array[ExistingElements].elemValue == -1)
+			if (ExistingElements == array.Length)
+			{
+				return false;
+			}
+			if (array[ExistingElements].elemValue == -1)
             {
                 array[ExistingElements].elemValue = elem;
                 ExistingElements++;
