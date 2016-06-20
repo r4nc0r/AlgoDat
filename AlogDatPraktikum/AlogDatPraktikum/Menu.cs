@@ -8,8 +8,8 @@ namespace AlogDatPraktikum
 {
     class Menu
     {
-        public static Dictionary dic;
-        static int intRead()
+
+        public static int intRead()
         {
             int input;
             try
@@ -114,34 +114,27 @@ namespace AlogDatPraktikum
             Dict.Print();
 
             Console.WriteLine("Manuelle Eingabe: (-1 zum Abbrechen)");
-            int input;
-            do
+
+            int input = intRead();
+            if (input == -1)
             {
-                input = intRead();
-                if (input == -1)
-                {
-                    Console.WriteLine("Eingabe beendet");
-                    break;
-                }
-                var result = Dict.Insert(input);
-                if (result)
-                {
-                    Console.WriteLine(result);
-                    Console.Clear();
-                    Ueberschrift(1);
-                    Ueberschrift(0, Dict.ToString());
+                return;
+            }
+            var result = Dict.Insert(input);
 
-                    Dict.Print();
+            if (result)
+            {
+                Console.WriteLine(result);
+                Console.Clear();
+                Ueberschrift(1);
+                Ueberschrift(0, Dict.ToString());
 
-                    Console.WriteLine("Manuelle Eingabe: (-1 zum Abbrechen)");
-                }
-                else
-                {
-                    Console.WriteLine("Einfügen fehlgeschlagen, nächste Zahl oder abbruch mit -1: ");
-                }
-
-            } while (input != -1);
-            EditMenu(Dict);
+                Dict.Print();
+            }
+            else
+            {
+                Console.WriteLine("Einfügen fehlgeschlagen");
+            }
         }
 
         /// <summary>
@@ -158,29 +151,19 @@ namespace AlogDatPraktikum
             Dict.Print();
 
             Console.WriteLine("Elemente Suchen: (-1 zum Abbrechen)");
-            int input;
-            do
-            {
-                input = intRead();
-                if (input == -1)
-                {
-                    Console.WriteLine("Eingabe beendet");
-                    break;
-                }
-                var result = Dict.Search(input);
-                if (result)
-                {
-                    Console.WriteLine(result);
-                    
-                    Console.WriteLine("Elemente Suchen: (-1 zum Abbrechen)");
-                }
-                else
-                {
-                    Console.WriteLine("Suchen fehlgeschlagen, nächste Zahl oder abbruch mit -1: ");
-                }
+            int input = intRead();
+            if (input == -1)
+                return;
 
-            } while (input != -1);
-            EditMenu(Dict);
+            var result = Dict.Search(input);
+            if (result)
+            {
+                Console.WriteLine(result);
+            }
+            else
+            {
+                Console.WriteLine("Suchen fehlgeschlagen");
+            }
         }
 
         /// <summary>
@@ -197,39 +180,33 @@ namespace AlogDatPraktikum
             Dict.Print();
 
             Console.WriteLine("Element Löschen: (-1 zum Abbrechen)");
-            int input;
-            do
+            int input = intRead();
+            if (input == -1)
             {
-                input = intRead();
-                if (input == -1)
-                {
-                    Console.WriteLine("Eingabe beendet");
-                    break;
-                }
-                var result = Dict.Delete(input);
-                if (result)
-                {
-                    Console.WriteLine(result);
-                    Console.Clear();
-                    Ueberschrift(1);
-                    Ueberschrift(0, Dict.ToString());
+                return;
+            }
+            var result = Dict.Delete(input);
+            if (result)
+            {
+                Console.WriteLine(result);
+                Console.Clear();
+                Ueberschrift(1);
+                Ueberschrift(0, Dict.ToString());
 
-                    Dict.Print();
+                Dict.Print();
 
-                    Console.WriteLine("Element Löschen: (-1 zum Abbrechen)");
-                }
-                else
-                {
-                    Console.WriteLine("Llöschen fehlgeschlagen, nächste Zahl oder abbruch mit -1: ");
-                }
+            }
+            else
+            {
+                Console.WriteLine("Löschen fehlgeschlagen");
+            }
 
-            } while (input != -1);
-            EditMenu(Dict);
         }
 
-        public static void EditMenu(Dictionary Dict)
+        public static int EditMenu(Dictionary Dict)
         {
-            int nextStep = LittleMenu("Weitere Bearbeitungsmöglichkeiten: ", "Eingeben", "Suchen", "Löschen", "Neuer Datentyp\n");
+            Dict.Print();
+            int nextStep = LittleMenu("Weitere Bearbeitungsmöglichkeiten: (-1 zum abbrechen)", "Eingeben", "Suchen", "Löschen\n");
             switch (nextStep)
             {
                 case 1:
@@ -241,16 +218,13 @@ namespace AlogDatPraktikum
                 case 3:
                     Delete(Dict);
                     break;
-                case 4:
-                    Dict = DataTypeMenu(Dict);
-                    break;
                 default:
-                    EditMenu(Dict);
                     break;
             }
+            return nextStep;
         }
 
-        public static Dictionary DataTypeMenu(Dictionary Dict)
+        public static Dictionary DataTypeMenu(Dictionary Dict, ref int input)
         {
             int abstrDatentyp = Menu.LittleMenu("Bitte wählen Sie einen abstrakten Datentyp:", "Set", "SortedSet", "Multiset", "SortedMultiSet");
 
@@ -264,7 +238,7 @@ namespace AlogDatPraktikum
             {
                 case 1:
                     Menu.Ueberschrift(0, "Set");
-                    konkrDatentyp = Menu.LittleMenu(message, "SetUnsortedLinkedList", "SetUnsortedArray");
+                    konkrDatentyp = Menu.LittleMenu(message, "SetUnsortedLinkedList", "SetUnsortedArray", "HashTabQuadProb", "HashTabSepChain");
                     switch (konkrDatentyp)
                     {
                         case 1:
@@ -274,6 +248,12 @@ namespace AlogDatPraktikum
                         case 2:
                             Console.Write("Größe angeben:");
                             Dict = new SetUnsortedArray(intRead());
+                            break;
+                        case 3:
+                            Dict = new HashTabQuadProb();
+                            break;
+                        case 4:
+                            Dict = new HashTabSepChain();
                             break;
 
                         default:
@@ -298,12 +278,6 @@ namespace AlogDatPraktikum
                             break;
                         case 4:
                             Dict = new BinTree();
-                            break;
-                        case 5:
-                            Dict = new HashTabQuadProb();
-                            break;
-                        case 6:
-                            Dict = new HashTabSepChain();
                             break;
                         default:
                             break;
@@ -346,7 +320,7 @@ namespace AlogDatPraktikum
 
                 default:
                     Console.WriteLine("Fehler");
-                    DataTypeMenu(Dict);
+                    input = -1;
                     break;
             }
             return Dict;
@@ -392,11 +366,6 @@ namespace AlogDatPraktikum
                 Console.WriteLine();
                 Console.WriteLine(Dict.GetType().ToString());
                 Console.WriteLine();
-
-                Dict.Print();
-
-                EditMenu(Dict);
-
             }
 
             /* ---------------------------------------------------------------------- Manuelle Eingabe ---------------------------------------------------------------------- */
