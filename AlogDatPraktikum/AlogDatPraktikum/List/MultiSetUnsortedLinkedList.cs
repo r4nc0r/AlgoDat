@@ -56,18 +56,22 @@ namespace AlogDatPraktikum
         {
             bool result = base.privateDelete(Element); //ruft privates Löschen von der Basis auf, dort wird löschvorgang erfolgen
 
-            LinkedListNode lfd = Element.next; // setze meinen lfd auf das nächste Element
-
-            while (lfd != null) 
+            if (Element != null)
             {
-                if (lfd.elem.elemValue == Element.elem.elemValue)
-                {
-                    privateDelete(lfd);     //wenn Element gefunden rekursiver Aufruf
-                    break;
-                }
+                LinkedListNode lfd = Element.next; // setze meinen lfd auf das nächste Element
 
-                lfd = lfd.next;
+                while (lfd != null)
+                {
+                    if (lfd.elem.elemValue == Element.elem.elemValue)
+                    {
+                        privateDelete(lfd);     //wenn Element gefunden rekursiver Aufruf
+                        break;
+                    }
+
+                    lfd = lfd.next;
+                }
             }
+
             return result;
         }
     }

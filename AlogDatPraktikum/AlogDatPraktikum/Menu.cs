@@ -8,7 +8,7 @@ namespace AlogDatPraktikum
 {
     class Menu
     {
-
+        public static Dictionary dic;
         static int intRead()
         {
             int input;
@@ -123,9 +123,10 @@ namespace AlogDatPraktikum
                     Console.WriteLine("Eingabe beendet");
                     break;
                 }
-                if (Dict.Insert(input))
+                var result = Dict.Insert(input);
+                if (result)
                 {
-                    Console.WriteLine(Dict.Insert(input));
+                    Console.WriteLine(result);
                     Console.Clear();
                     Ueberschrift(1);
                     Ueberschrift(0, Dict.ToString());
@@ -166,9 +167,10 @@ namespace AlogDatPraktikum
                     Console.WriteLine("Eingabe beendet");
                     break;
                 }
-                if (Dict.Search(input))
+                var result = Dict.Search(input);
+                if (result)
                 {
-                    Console.WriteLine(Dict.Search(input));
+                    Console.WriteLine(result);
                     
                     Console.WriteLine("Elemente Suchen: (-1 zum Abbrechen)");
                 }
@@ -204,9 +206,10 @@ namespace AlogDatPraktikum
                     Console.WriteLine("Eingabe beendet");
                     break;
                 }
-                if (Dict.Delete(input))
+                var result = Dict.Delete(input);
+                if (result)
                 {
-                    Console.WriteLine(Dict.Delete(input));
+                    Console.WriteLine(result);
                     Console.Clear();
                     Ueberschrift(1);
                     Ueberschrift(0, Dict.ToString());

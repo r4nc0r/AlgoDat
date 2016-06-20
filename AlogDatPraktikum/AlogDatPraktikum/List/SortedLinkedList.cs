@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlogDatPraktikum
 {
-   abstract class SortedLinkedList : BaseList
+    abstract class SortedLinkedList : BaseList
     {
         /// <summary>
         /// Überschreibt Add Methode aus der Basis
@@ -58,7 +58,7 @@ namespace AlogDatPraktikum
                 else
                     return lfd;
             }
-            
+
             return lfd;
         }
 
@@ -71,14 +71,17 @@ namespace AlogDatPraktikum
         {
             bool result = base.privateDelete(Element);
 
-            if (Element.next != null && Element.next.elem.elemValue == Element.elem.elemValue) //wenn nächstes Element wieder das zulöschende Element ist, dann löschen
+            if (Element != null)
             {
-                privateDelete(Element.next); //rekursiver Aufruf
-            }
+                if (Element.next != null && Element.next.elem.elemValue == Element.elem.elemValue) //wenn nächstes Element wieder das zulöschende Element ist, dann löschen
+                {
+                    privateDelete(Element.next); //rekursiver Aufruf
+                }
 
-            if ((Element.prev != null && Element.prev.elem.elemValue == Element.elem.elemValue)) //wenn vorheriges Element auch zulöschendes Element ist, dann löschen
-            {
-                privateDelete(Element.prev); //rekursiver Aufruf
+                if ((Element.prev != null && Element.prev.elem.elemValue == Element.elem.elemValue)) //wenn vorheriges Element auch zulöschendes Element ist, dann löschen
+                {
+                    privateDelete(Element.prev); //rekursiver Aufruf
+                }
             }
 
             return result;
@@ -114,13 +117,10 @@ namespace AlogDatPraktikum
                     {
                         lfd = lfd.next.next; //dann den lfd aufs übernächste Element setzen
                     }
-                    //else
-                    //{
-                    //    if (lfd.next.elem.elemValue == Element) //übernächstes Elem ist das letzte Elem, dann vorheriges elem vergleichen mit gesuchten Elem
-                    //    {
-                    //        return lfd.next; 
-                    //    }
-                    //}
+                    else
+                    {
+                        lfd = lfd.next;
+                    }
                 }
                 else  //lfd sein Element ist nicht kleiner als gesuchtes Element
                 {
