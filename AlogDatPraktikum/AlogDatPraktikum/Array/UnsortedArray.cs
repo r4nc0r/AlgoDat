@@ -62,8 +62,8 @@ namespace AlogDatPraktikum
             int deletePosition = privateSearch(elem, array);
             if (deletePosition != -1)
             {
-                array[deletePosition].elemValue = array[ExistingElements].elemValue;
-                array[ExistingElements].elemValue = -1;
+                array[deletePosition].elemValue = array[ExistingElements-1].elemValue;
+                array[ExistingElements-1].elemValue = -1;
                 ExistingElements--;
                 return true;
             }
