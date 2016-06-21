@@ -78,7 +78,7 @@ namespace AlogDatPraktikum
             for (int i = 0; i < hashTab.Length; i++)
             {
                 if (hashTab[i].elemValue > -1)
-                    Console.WriteLine("Key {0}, Index: {1}", hashTab[i].elemValue, i);
+                    Console.WriteLine("Key {0}, Value: {1}", hashTab[i].elemValue, i);
             }
         }
 

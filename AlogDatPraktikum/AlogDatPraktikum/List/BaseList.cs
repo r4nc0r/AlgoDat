@@ -12,7 +12,7 @@ namespace AlogDatPraktikum
         private LinkedListNode first = null, last = null;
         public LinkedListNode Root { get { return first; } } //enthält erstes Listenelement
         public LinkedListNode Last { get { return last; }
-            protected set { last = value; } }                       //enthält letzes Listenelement
+        protected set { last = value; } }                       //enthält letzes Listenelement
         #endregion
 
         #region MethodenH

@@ -1,49 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AlogDatPraktikum.AVLTree" Collapsed="true">
-    <Position X="6" Y="11.25" Width="1.5" />
+    <Position X="18.25" Y="16.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAEEAAAAAAAEAAAAAAACAAAEAAAAEAAAAAAAAAAQ=</HashCode>
+      <HashCode>CAAAAEEAAAAAAAEAAAAAAAAAAAEAAAAEAAAAAAAAAAQ=</HashCode>
       <FileName>Tree\AVLTree.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlogDatPraktikum.AVLTreeNode" Collapsed="true">
-    <Position X="11" Y="1.75" Width="1.5" />
+    <Position X="23.25" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAQABAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>Tree\AVLTreeNode.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlogDatPraktikum.BaseArray" Collapsed="true">
-    <Position X="4.5" Y="4.5" Width="1.5" />
+    <Position X="16.75" Y="10" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAhAAAAAAAAAAAAAAAAAAIAAAAAAAAAAEAAA=</HashCode>
+      <HashCode>AAAAAAAAAhAAAAAAAAAAAAQAAIAAIAAAAAAAAAAEAAA=</HashCode>
       <FileName>Array\BaseArray.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlogDatPraktikum.BaseHash" Collapsed="true">
-    <Position X="10.25" Y="8.5" Width="1.5" />
+    <Position X="22.5" Y="14" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAFAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAgAEAAA=</HashCode>
       <FileName>Hash\BaseHash.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlogDatPraktikum.BaseList" Collapsed="true">
-    <Position X="4.5" Y="0.5" Width="1.5" />
+    <Position X="16.75" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAADAACAEAIAAAAEEBAAAAACASAAAEAgA=</HashCode>
+      <HashCode>AAIAAAAAAAAAACAAAAEAIAQAAEEAAAAAACACAAAEAgA=</HashCode>
       <FileName>List\BaseList.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlogDatPraktikum.BaseTree" Collapsed="true">
-    <Position X="6" Y="8.5" Width="1.5" />
+    <Position X="18.25" Y="14" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAECAA=</HashCode>
       <FileName>Tree\BaseTree.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlogDatPraktikum.BinTree" Collapsed="true">
-    <Position X="6" Y="9.75" Width="1.5" />
+    <Position X="18.25" Y="15.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAABAAAAEAAAAEAAAAAQAAAAAAgAAA=</HashCode>
       <FileName>Tree\BinTree.cs</FileName>
@@ -51,21 +51,21 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AlogDatPraktikum.DictElement" Collapsed="true">
-    <Position X="10.5" Y="3.25" Width="1.5" />
+    <Position X="22.75" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DictElement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlogDatPraktikum.HashEntry" Collapsed="true">
-    <Position X="12.25" Y="3.25" Width="1.5" />
+    <Position X="24.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Hash\HashEntry.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlogDatPraktikum.HashTabQuadProb" Collapsed="true">
-    <Position X="9" Y="9.75" Width="1.5" />
+    <Position X="21.25" Y="15.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAEAAgAAAAAAAAAAAIAQAAAEAAAAAAAQAAQAkAAA=</HashCode>
       <FileName>Hash\HashTabQuadProb.cs</FileName>
@@ -73,7 +73,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AlogDatPraktikum.HashTabSepChain" Collapsed="true">
-    <Position X="11.25" Y="9.75" Width="1.5" />
+    <Position X="23.5" Y="15.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAQAAAAAAAAAAAIAAAAAEAAAAAAAAAAAAkAAA=</HashCode>
       <FileName>Hash\HashTabSepChain.cs</FileName>
@@ -81,22 +81,22 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AlogDatPraktikum.LinkedListNode" Collapsed="true">
-    <Position X="10.5" Y="4.25" Width="1.5" />
+    <Position X="22.75" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAIAAAA=</HashCode>
       <FileName>List\LinkedListNode.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlogDatPraktikum.MultiSetSortedArray" Collapsed="true">
-    <Position X="1.25" Y="7.25" Width="1.5" />
+    <Position X="13.5" Y="12.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAAAEAAAAAAAAAEAAAAAAAAAAEAAAAAAAAAAAAkAQA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAEAAAAAAAAAAEAAAAAAAAAAAAkAAA=</HashCode>
       <FileName>Array\MultiSetSortedArray.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AlogDatPraktikum.MultiSetSortedLinkedList" Collapsed="true">
-    <Position X="5.75" Y="3.25" Width="1.5" />
+    <Position X="18" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAkAAA=</HashCode>
       <FileName>List\MultiSetSortedLinkedList.cs</FileName>
@@ -104,38 +104,38 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AlogDatPraktikum.MultiSetUnsortedArray" Collapsed="true">
-    <Position X="5.75" Y="7.25" Width="1.5" />
+    <Position X="18" Y="12.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAAAAABAACAEAAAAAAAAAAAAkAAA=</HashCode>
+      <HashCode>AQAAAEAAAAAAAAAAAAAAAAAACAEAAAAAAAAAAAAkAAA=</HashCode>
       <FileName>Array\MultiSetUnsortedArray.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AlogDatPraktikum.MultiSetUnsortedLinkedList" Collapsed="true">
-    <Position X="1.25" Y="3.25" Width="1.5" />
+    <Position X="13.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAkAAA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAQAAAEAAAAAAAAAAAAkAAA=</HashCode>
       <FileName>List\MultiSetUnsortedLinkedList.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AlogDatPraktikum.Program" Collapsed="true">
-    <Position X="12.25" Y="4.25" Width="1.5" />
+    <Position X="24.5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAABAAAAAE=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlogDatPraktikum.SetSortedArray" Collapsed="true">
-    <Position X="3.5" Y="7.25" Width="1.5" />
+    <Position X="15.75" Y="12.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAAAEAAAAAIAAAAAAAAAAAAAAEAAAAAAAAAAAAkAQA=</HashCode>
+      <HashCode>AAAAAEAAAAAIAAAAAAAAAAAAAAEAAAAAAAAAAAAkAAA=</HashCode>
       <FileName>Array\SetSortedArray.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AlogDatPraktikum.SetSortedLinkedList" Collapsed="true">
-    <Position X="8" Y="3.25" Width="1.5" />
+    <Position X="20.25" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAkAAA=</HashCode>
       <FileName>List\SetSortedLinkedList.cs</FileName>
@@ -143,15 +143,15 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AlogDatPraktikum.SetUnsortedArray" Collapsed="true">
-    <Position X="8" Y="7.25" Width="1.5" />
+    <Position X="20.25" Y="12.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAAAAABAAAAECAAAAAAAAAAAkAAA=</HashCode>
+      <HashCode>AQAAAEAAAAAAAAAAAAAAAAAAAAECAAAAAAAAAAAkAAA=</HashCode>
       <FileName>Array\SetUnsortedArray.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AlogDatPraktikum.SetUnsortedLinkedList" Collapsed="true">
-    <Position X="3.5" Y="3.25" Width="1.5" />
+    <Position X="15.75" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAkAAA=</HashCode>
       <FileName>List\SetUnsortedLinkedList.cs</FileName>
@@ -159,74 +159,95 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="AlogDatPraktikum.SortedArray" Collapsed="true">
-    <Position X="2.25" Y="5.75" Width="1.5" />
+    <Position X="14.5" Y="11.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAgAAAAQAAAAAA=</HashCode>
       <FileName>Array\SortedArray.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlogDatPraktikum.SortedLinkedList" Collapsed="true">
-    <Position X="6.75" Y="1.75" Width="1.5" />
+    <Position X="19" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAQAAAA=</HashCode>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAQAAEAAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>List\SortedLinkedList.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlogDatPraktikum.TreeNode" Collapsed="true">
-    <Position X="11" Y="0.5" Width="1.5" />
+    <Position X="23.25" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAiAA=</HashCode>
       <FileName>Tree\TreeNode.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlogDatPraktikum.UnsortedArray" Collapsed="true">
-    <Position X="6.75" Y="5.75" Width="1.5" />
+    <Position X="19" Y="11.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAEA=</HashCode>
+      <HashCode>AAAAAEAAACAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAEA=</HashCode>
       <FileName>Array\UnsortedArray.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AlogDatPraktikum.UnsortedLinkedList" Collapsed="true">
-    <Position X="2.25" Y="1.75" Width="1.5" />
+    <Position X="14.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>List\UnsortedLinkedList.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="AlogDatPraktikum.Menu" Collapsed="true">
+    <Position X="12.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAEAkAEAiAAAAAAAIAAgABA=</HashCode>
+      <FileName>Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AlogDatPraktikum.TreeNodeRef" Collapsed="true">
+    <Position X="14.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAACAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tree\TreeNodeRef.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="AlogDatPraktikum.Dictionary" Collapsed="true">
-    <Position X="2.25" Y="8.5" Width="1.5" />
+    <Position X="14.5" Y="14" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAkAAA=</HashCode>
       <FileName>Interfaces\Dictonary.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="AlogDatPraktikum.MultiSet" Collapsed="true">
-    <Position X="1" Y="9.75" Width="1.5" />
+    <Position X="13.25" Y="15.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\MultiSet.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="AlogDatPraktikum.Set" Collapsed="true">
-    <Position X="3.25" Y="9.75" Width="1.5" />
+    <Position X="15.5" Y="15.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\Set.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="AlogDatPraktikum.SortedMultiSet" Collapsed="true">
-    <Position X="1" Y="11.25" Width="1.5" />
+    <Position X="13.25" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\SortedMultiSet.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="AlogDatPraktikum.SortedSet" Collapsed="true">
-    <Position X="3.25" Y="11.25" Width="1.5" />
+    <Position X="15.5" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\SortedSet.cs</FileName>
     </TypeIdentifier>
   </Interface>
+  <Enum Name="AlogDatPraktikum.Direction" Collapsed="true">
+    <Position X="12.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAEgAA=</HashCode>
+      <FileName>Tree\TreeNodeRef.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
