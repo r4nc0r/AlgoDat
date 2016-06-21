@@ -146,14 +146,17 @@ namespace AlogDatPraktikum
         /// <returns></returns>
         private int calcHash(int Element, int j, int c)
         {
-            //hier wird berechenet ob das positive oder negative Quadrat verwendet wird
-            int mult = (int)(Math.Ceiling(j  / 2.0));
+            
+            int key = hashfuntion(Element, c);
+
+            int mult = (int)(Math.Ceiling(j / 2.0));
             //quadrieren
             mult = mult * mult;
-             
-            int temp = hashfuntion(Element, c) + (int)(Math.Pow(-1, (j + 1)) * mult);
-            
-            //
+            int vorzeichen = (j % 2 == 0) ? -1 : 1;
+            //int temp = hashfuntion(Element, c) + (int)(Math.Pow(-1, (j + 1)) * mult);
+            int offset = (int)(vorzeichen * mult);
+            int temp = key + offset;
+
             if (temp <= -1)
             {
                 int ring = (temp * -1 )/ c + 1;

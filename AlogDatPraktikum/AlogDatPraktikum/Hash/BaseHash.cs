@@ -30,6 +30,7 @@ namespace AlogDatPraktikum
         /// <returns></returns>
         public virtual int calcNextPrim(int Input)
         {
+            //Prüfung ob es sich um eine gerade Zahl handelt
             if (Input % 2 == 0)
                 Input++;
             while (!isPrim(Input))
