@@ -9,6 +9,12 @@ namespace AlogDatPraktikum
     class SetSortedArray : SortedArray, SortedSet
     {
         private DictElement[] SetSorted;
+
+        /// <summary>
+        /// Constructor
+        /// Initiates Array and Existing Elements
+        /// </summary>
+        /// <param name="size"></param>
         public SetSortedArray(int size)
         {
             SetSorted = new DictElement[size];

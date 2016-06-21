@@ -8,6 +8,13 @@ namespace AlogDatPraktikum
 {
     abstract class SortedArray : BaseArray
     {
+        /// <summary>
+        /// Deletes an Element of an Array
+        /// Shifts array to left so order remains preserved
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public bool PrivateDelete(ref DictElement[] array, int position)
         {
             ShiftArrayLeft(array,array.Length-2, position);
@@ -16,7 +23,8 @@ namespace AlogDatPraktikum
         }
 
         /// <summary>
-        /// Binär Suche 
+        /// Binary Search
+        /// if Element is not found, insert position is returned
         /// </summary>
         /// <param name="elem"></param>
         /// <param name="array"></param>
@@ -66,13 +74,20 @@ namespace AlogDatPraktikum
             return position;
         }
 
+        /// <summary>
+        /// Inserts an given Element into an Array at an given position
+        /// If Existing Element at Position is bigger array will be shifted to right
+        /// </summary>
+        /// <param name="elem"></param>
+        /// <param name="array"></param>
+        /// <param name="position"></param>
+        /// <returns>if Insert is successfull</returns>
         public bool PrivateInsert(int elem,ref DictElement[] array, int position)
         {
             if (position == -1 || position + 1 > array.Length)
             {
                 return false;
             }
-            
             if (array[position].elemValue > elem || array[position].elemValue == elem)
             {
                 array = ShiftArrayRight(array, array.Length -1,position);

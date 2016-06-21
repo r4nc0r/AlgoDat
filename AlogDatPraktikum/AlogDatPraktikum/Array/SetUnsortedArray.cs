@@ -9,8 +9,17 @@ namespace AlogDatPraktikum
     class SetUnsortedArray : UnsortedArray, Set
     {
         DictElement[] SetUnsorted;
+
+        /// <summary>
+        /// How many Elements are in the Array
+        /// </summary>
         private int ExistingElements;
 
+        /// <summary>
+        /// Constructor
+        /// Initiates Array and Existing Elements
+        /// </summary>
+        /// <param name="size"></param>
         public SetUnsortedArray(int size)
         {
             SetUnsorted = new DictElement[size];

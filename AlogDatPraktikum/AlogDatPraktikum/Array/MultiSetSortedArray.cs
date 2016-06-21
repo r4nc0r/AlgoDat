@@ -9,6 +9,12 @@ namespace AlogDatPraktikum
     class MultiSetSortedArray : SortedArray, SortedMultiSet
     {
         private DictElement[] MultiSetSorted;
+
+        /// <summary>
+        /// Constructor
+        /// Initiates Array
+        /// </summary>
+        /// <param name="size"></param>
         public MultiSetSortedArray(int size)
         {
             MultiSetSorted = new DictElement[size];
